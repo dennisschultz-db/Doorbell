@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/CDTDataObjectMetadata.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/CDTDataObjectMetadata</TokenIdentifier>
+			<Abstract type="html">The CDTDataObjectMetadata class defines metadata that is required to manage the CDTDataObject object.</Abstract>
+			<DeclaredIn>CDTDataObjectMetadata.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CDTDataObjectMetadata/setDocumentId:</TokenIdentifier>
+			<Abstract type="html">A string that uniquely identifies this object. This will be the docId of the CDTDocumentRevision that is persisted.</Abstract>
+			<DeclaredIn>CDTDataObjectMetadata.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) NSString *documentId</Declaration>
+			
+			
+			<Anchor>//api/name/documentId</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CDTDataObjectMetadata/documentId</TokenIdentifier>
+			<Abstract type="html">A string that uniquely identifies this object. This will be the docId of the CDTDocumentRevision that is persisted.</Abstract>
+			<DeclaredIn>CDTDataObjectMetadata.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) NSString *documentId</Declaration>
+			
+			
+			<Anchor>//api/name/documentId</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/CDTDataObjectMetadata/documentId</TokenIdentifier>
+			<Abstract type="html">A string that uniquely identifies this object. This will be the docId of the CDTDocumentRevision that is persisted.</Abstract>
+			<DeclaredIn>CDTDataObjectMetadata.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) NSString *documentId</Declaration>
+			
+			
+			<Anchor>//api/name/documentId</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CDTDataObjectMetadata/setRevisionId:</TokenIdentifier>
+			<Abstract type="html">A string that identifies the revision for this object. This will be the revId of the CDTDocumentRevision that is persisted.</Abstract>
+			<DeclaredIn>CDTDataObjectMetadata.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) NSString *revisionId</Declaration>
+			
+			
+			<Anchor>//api/name/revisionId</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CDTDataObjectMetadata/revisionId</TokenIdentifier>
+			<Abstract type="html">A string that identifies the revision for this object. This will be the revId of the CDTDocumentRevision that is persisted.</Abstract>
+			<DeclaredIn>CDTDataObjectMetadata.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) NSString *revisionId</Declaration>
+			
+			
+			<Anchor>//api/name/revisionId</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/CDTDataObjectMetadata/revisionId</TokenIdentifier>
+			<Abstract type="html">A string that identifies the revision for this object. This will be the revId of the CDTDocumentRevision that is persisted.</Abstract>
+			<DeclaredIn>CDTDataObjectMetadata.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) NSString *revisionId</Declaration>
+			
+			
+			<Anchor>//api/name/revisionId</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CDTDataObjectMetadata/setDeleted:</TokenIdentifier>
+			<Abstract type="html">Indicates if this revision has been deleted. This also corresponds to the CDTDocumentRevision deleted field.</Abstract>
+			<DeclaredIn>CDTDataObjectMetadata.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) BOOL deleted</Declaration>
+			
+			
+			<Anchor>//api/name/deleted</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CDTDataObjectMetadata/deleted</TokenIdentifier>
+			<Abstract type="html">Indicates if this revision has been deleted. This also corresponds to the CDTDocumentRevision deleted field.</Abstract>
+			<DeclaredIn>CDTDataObjectMetadata.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) BOOL deleted</Declaration>
+			
+			
+			<Anchor>//api/name/deleted</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/CDTDataObjectMetadata/deleted</TokenIdentifier>
+			<Abstract type="html">Indicates if this revision has been deleted. This also corresponds to the CDTDocumentRevision deleted field.</Abstract>
+			<DeclaredIn>CDTDataObjectMetadata.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) BOOL deleted</Declaration>
+			
+			
+			<Anchor>//api/name/deleted</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+        
+	</File>
+</Tokens>

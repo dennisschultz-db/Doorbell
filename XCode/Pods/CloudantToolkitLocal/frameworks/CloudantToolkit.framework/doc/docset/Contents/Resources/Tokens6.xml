@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Protocols/CDTDataObject.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intf/CDTDataObject</TokenIdentifier>
+			<Abstract type="html">The CDTDataObject protocol is used to store metadata for the CDTDataObjectMapper.  It must be conformed to for data objects using the DataObjectMapper</Abstract>
+			<DeclaredIn>CDTDataObject.h</DeclaredIn>
+            
+			
+			<NodeRef refid="6"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/CDTDataObject/setMetadata:</TokenIdentifier>
+			<Abstract type="html">Metadata associated with the data object.</Abstract>
+			<DeclaredIn>CDTDataObject.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic, readwrite) CDTDataObjectMetadata *metadata</Declaration>
+			
+			
+			<Anchor>//api/name/metadata</Anchor>
+            <NodeRef refid="6"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/CDTDataObject/metadata</TokenIdentifier>
+			<Abstract type="html">Metadata associated with the data object.</Abstract>
+			<DeclaredIn>CDTDataObject.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic, readwrite) CDTDataObjectMetadata *metadata</Declaration>
+			
+			
+			<Anchor>//api/name/metadata</Anchor>
+            <NodeRef refid="6"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfp/CDTDataObject/metadata</TokenIdentifier>
+			<Abstract type="html">Metadata associated with the data object.</Abstract>
+			<DeclaredIn>CDTDataObject.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic, readwrite) CDTDataObjectMetadata *metadata</Declaration>
+			
+			
+			<Anchor>//api/name/metadata</Anchor>
+            <NodeRef refid="6"/>
+		</Token>
+		
+        
+	</File>
+</Tokens>

@@ -1,0 +1,1 @@
+../../../../CloudantToolkitLocal/frameworks/CloudantToolkit.framework/Headers/CDTStoreOperation.h

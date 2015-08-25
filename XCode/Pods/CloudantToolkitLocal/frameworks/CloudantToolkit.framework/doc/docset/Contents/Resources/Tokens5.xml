@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/CloudantToolkit.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/CloudantToolkit</TokenIdentifier>
+			<Abstract type="html">The CloudantToolkit class allows you to get the version and build date.</Abstract>
+			<DeclaredIn>CloudantToolkit.h</DeclaredIn>
+            
+			
+			<NodeRef refid="5"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/CloudantToolkit/version</TokenIdentifier>
+			<Abstract type="html">the version of CloudantToolkit</Abstract>
+			<DeclaredIn>CloudantToolkit.h</DeclaredIn>
+			
+			<Declaration>+ (NSString *)version</Declaration>
+			
+			<ReturnValue><Abstract type="html">the version of CloudantToolkit</Abstract></ReturnValue>
+			<Anchor>//api/name/version</Anchor>
+            <NodeRef refid="5"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/CloudantToolkit/buildDate</TokenIdentifier>
+			<Abstract type="html">the build date of CloudantToolkit</Abstract>
+			<DeclaredIn>CloudantToolkit.h</DeclaredIn>
+			
+			<Declaration>+ (NSString *)buildDate</Declaration>
+			
+			<ReturnValue><Abstract type="html">the build date of CloudantToolkit</Abstract></ReturnValue>
+			<Anchor>//api/name/buildDate</Anchor>
+            <NodeRef refid="5"/>
+		</Token>
+		
+        
+	</File>
+</Tokens>

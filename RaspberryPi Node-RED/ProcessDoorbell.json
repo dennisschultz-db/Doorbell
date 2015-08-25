@@ -1,0 +1,123 @@
+[{
+    "id": "6a6a7c6e.959584",
+    "type": "ibmiot",
+    "name": "myPi"
+}, {
+    "id": "6666fc67.999904",
+    "type": "rpi-gpio in",
+    "name": "Pin 12",
+    "pin": "12",
+    "intype": "down",
+    "read": false,
+    "x": 110,
+    "y": 81,
+    "z": "f6bf7d97.09408",
+    "wires": [
+        ["27b6bd17.d84942", "942cabfb.6bd358"]
+    ]
+}, {
+    "id": "27b6bd17.d84942",
+    "type": "debug",
+    "name": "",
+    "active": true,
+    "console": "false",
+    "complete": "false",
+    "x": 719,
+    "y": 80,
+    "z": "f6bf7d97.09408",
+    "wires": []
+}, {
+    "id": "f0600cd0.0f9ff",
+    "type": "inject",
+    "name": "",
+    "topic": "",
+    "payload": "",
+    "payloadType": "date",
+    "repeat": "",
+    "crontab": "",
+    "once": false,
+    "x": 142,
+    "y": 258,
+    "z": "f6bf7d97.09408",
+    "wires": [
+        ["942cabfb.6bd358"]
+    ]
+}, {
+    "id": "942cabfb.6bd358",
+    "type": "trigger",
+    "op1": "1",
+    "op2": "0",
+    "op1type": "val",
+    "op2type": "val",
+    "duration": "2",
+    "extend": false,
+    "units": "s",
+    "name": "",
+    "x": 303,
+    "y": 259,
+    "z": "f6bf7d97.09408",
+    "wires": [
+        ["f509c12d.0af64", "e8a1ec78.175e1"]
+    ]
+}, {
+    "id": "f509c12d.0af64",
+    "type": "rpi-gpio out",
+    "name": "",
+    "pin": "22",
+    "set": "",
+    "level": "0",
+    "out": "out",
+    "x": 643,
+    "y": 261,
+    "z": "f6bf7d97.09408",
+    "wires": []
+}, {
+    "id": "e8a1ec78.175e1",
+    "type": "function",
+    "name": "Take Picture",
+    "func": "// We only want to take pictures when \n// the button is pressed, not when it is released. \nif (msg.payload == 1) { \n    var encoding = \"png\";\n    var currTime = new Date().getTime();\n    // Use the current timestamp to ensure\n    // the picture filename is unique.\n    var pictureFilename = \"/home/pi/pictures/\" + currTime + \".\" + encoding;\n    var opts = {\n        mode: \"photo\",\n        encoding: encoding, \n        quality: 75,\n        width: 500,\n        height: 500,\n        output: pictureFilename,\n        timeout: 1};\n    // Use the global RaspiCam to create a camera object.\n    var camera = new context.global.RaspiCam( opts );\n\n    // Take a picture\n    var process_id = camera.start( opts );\n\n    // Send the file name to the next node as a payload.\n    return {payload: JSON.stringify({pictureFilename : pictureFilename}) };\n}\n",
+    "outputs": 1,
+    "noerr": 0,
+    "x": 426,
+    "y": 161,
+    "z": "f6bf7d97.09408",
+    "wires": [
+        ["27b6bd17.d84942", "b53c15ed.7fbf6"]
+    ]
+}, {
+    "id": "65d4a24.f9a2b5c",
+    "type": "ibmiot out",
+    "authentication": "apiKey",
+    "apiKey": "6a6a7c6e.959584",
+    "outputType": "evt",
+    "deviceId": "<your-IoT-deviceId>",
+    "deviceType": "myPi",
+    "eventCommandType": "visitorAlert",
+    "format": "json",
+    "data": "Message.payload",
+    "name": "IBM IoT App Out",
+    "service": "registered",
+    "x": 782,
+    "y": 189,
+    "z": "f6bf7d97.09408",
+    "wires": []
+}, {
+    "id": "b53c15ed.7fbf6",
+    "type": "delay",
+    "name": "",
+    "pauseType": "delay",
+    "timeout": "2",
+    "timeoutUnits": "seconds",
+    "rate": "1",
+    "rateUnits": "second",
+    "randomFirst": "1",
+    "randomLast": "5",
+    "randomUnits": "seconds",
+    "drop": false,
+    "x": 607,
+    "y": 188,
+    "z": "f6bf7d97.09408",
+    "wires": [
+        ["65d4a24.f9a2b5c"]
+    ]
+}]

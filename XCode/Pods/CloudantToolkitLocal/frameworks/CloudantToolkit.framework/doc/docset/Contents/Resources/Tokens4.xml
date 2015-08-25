@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/CDTStore.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/CDTStore</TokenIdentifier>
+			<Abstract type="html">The CDTStore class is a class cluster that abstracts an common interface for local and remote Cloudant data stores.  Local data stores use the CDTDatastore and remote data stores use REST API to modify the remote data store.</Abstract>
+			<DeclaredIn>CDTStore.h</DeclaredIn>
+            
+			
+			<NodeRef refid="4"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CDTStore/setMapper:</TokenIdentifier>
+			<Abstract type="html">Specifies the CDTObjectMapper to use for mapping CDTDocumentRevision objects to objects and vice versa.</Abstract>
+			<DeclaredIn>CDTStore.h</DeclaredIn>
+			
+			<Declaration>@property id&lt;CDTObjectMapper&gt; mapper</Declaration>
+			
+			
+			<Anchor>//api/name/mapper</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CDTStore/mapper</TokenIdentifier>
+			<Abstract type="html">Specifies the CDTObjectMapper to use for mapping CDTDocumentRevision objects to objects and vice versa.</Abstract>
+			<DeclaredIn>CDTStore.h</DeclaredIn>
+			
+			<Declaration>@property id&lt;CDTObjectMapper&gt; mapper</Declaration>
+			
+			
+			<Anchor>//api/name/mapper</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/CDTStore/mapper</TokenIdentifier>
+			<Abstract type="html">Specifies the CDTObjectMapper to use for mapping CDTDocumentRevision objects to objects and vice versa.</Abstract>
+			<DeclaredIn>CDTStore.h</DeclaredIn>
+			
+			<Declaration>@property id&lt;CDTObjectMapper&gt; mapper</Declaration>
+			
+			
+			<Anchor>//api/name/mapper</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CDTStore/setName:</TokenIdentifier>
+			<Abstract type="html">The CDTStore name</Abstract>
+			<DeclaredIn>CDTStore.h</DeclaredIn>
+			
+			<Declaration>@property (readonly, atomic) NSString *name</Declaration>
+			
+			
+			<Anchor>//api/name/name</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CDTStore/name</TokenIdentifier>
+			<Abstract type="html">The CDTStore name</Abstract>
+			<DeclaredIn>CDTStore.h</DeclaredIn>
+			
+			<Declaration>@property (readonly, atomic) NSString *name</Declaration>
+			
+			
+			<Anchor>//api/name/name</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/CDTStore/name</TokenIdentifier>
+			<Abstract type="html">The CDTStore name</Abstract>
+			<DeclaredIn>CDTStore.h</DeclaredIn>
+			
+			<Declaration>@property (readonly, atomic) NSString *name</Declaration>
+			
+			
+			<Anchor>//api/name/name</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CDTStore/setRequireMapperWithDatatype:</TokenIdentifier>
+			<Abstract type="html">Indicates whether a CDTObjectMapper must be set when @datatype is part of the JSON body.</Abstract>
+			<DeclaredIn>CDTStore.h</DeclaredIn>
+			
+			<Declaration>@property (atomic) BOOL requireMapperWithDatatype</Declaration>
+			
+			
+			<Anchor>//api/name/requireMapperWithDatatype</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CDTStore/requireMapperWithDatatype</TokenIdentifier>
+			<Abstract type="html">Indicates whether a CDTObjectMapper must be set when @datatype is part of the JSON body.</Abstract>
+			<DeclaredIn>CDTStore.h</DeclaredIn>
+			
+			<Declaration>@property (atomic) BOOL requireMapperWithDatatype</Declaration>
+			
+			
+			<Anchor>//api/name/requireMapperWithDatatype</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/CDTStore/requireMapperWithDatatype</TokenIdentifier>
+			<Abstract type="html">Indicates whether a CDTObjectMapper must be set when @datatype is part of the JSON body.</Abstract>
+			<DeclaredIn>CDTStore.h</DeclaredIn>
+			
+			<Declaration>@property (atomic) BOOL requireMapperWithDatatype</Declaration>
+			
+			
+			<Anchor>//api/name/requireMapperWithDatatype</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/CDTStore/localStoreWithDatastore:</TokenIdentifier>
+			<Abstract type="html">Creates a CDTStore that is local to the device.</Abstract>
+			<DeclaredIn>CDTStore.h</DeclaredIn>
+			
+			<Declaration>+ (CDTStore *)localStoreWithDatastore:(CDTDatastore *)datastore</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>datastore</Name>
+					<Abstract type="html">Specifies the CDTDatastore from which to create the local CDTStore.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">The newly created CDTStore.</Abstract></ReturnValue>
+			<Anchor>//api/name/localStoreWithDatastore:</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/CDTStore/remoteStoreWithUrl:completionHandler:</TokenIdentifier>
+			<Abstract type="html">Creates a CDTStore configured to access a remote Cloudant database.  If the remote Cloudant database does not exist, it will be created.</Abstract>
+			<DeclaredIn>CDTStore.h</DeclaredIn>
+			
+			<Declaration>+ (void)remoteStoreWithUrl:(NSURL *)url completionHandler:(void ( ^ ) ( CDTStore *store , NSError *error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>url</Name>
+					<Abstract type="html">Specifies the NSURL for the Cloudant remote database.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">Specifies the completion handler to call when the CDTStore has been created.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">The newly created CDTStore.</Abstract></ReturnValue>
+			<Anchor>//api/name/remoteStoreWithUrl:completionHandler:</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CDTStore/createIndexWithName:fields:completionHandler:</TokenIdentifier>
+			<Abstract type="html">Creates an index on the CDTStore.  Indexes must be created on fields that are used in CDTQuery operations.</Abstract>
+			<DeclaredIn>CDTStore.h</DeclaredIn>
+			
+			<Declaration>- (void)createIndexWithName:(NSString *)indexName fields:(NSArray *)fields completionHandler:(void ( ^ ) ( NSError *error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>indexName</Name>
+					<Abstract type="html">Specifies the name of the new index.</Abstract>
+				</Parameter><Parameter>
+					<Name>fields</Name>
+					<Abstract type="html">Specifies the field names to index.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">Specifies the completionHandler to call upon completion. The creation of an index is an asynchronous event.  If the error is nil, the operation was successful.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/createIndexWithName:fields:completionHandler:</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CDTStore/deleteIndexWithName:completionHandler:</TokenIdentifier>
+			<Abstract type="html">Deletes an index with a specific name.</Abstract>
+			<DeclaredIn>CDTStore.h</DeclaredIn>
+			
+			<Declaration>- (void)deleteIndexWithName:(NSString *)indexName completionHandler:(void ( ^ ) ( NSError *error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>indexName</Name>
+					<Abstract type="html">Specifies the name of the index to delete.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">Specifies the completionHandler to call upon completion. The deletion of an index is an asynchronous event.  If the error is nil, the operation was successful.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/deleteIndexWithName:completionHandler:</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CDTStore/createIndexWithDataType:fields:completionHandler:</TokenIdentifier>
+			<Abstract type="html">Creates an index with a data type. The data type is a cross-platform data type that can be used in CDTQuery.  There are corresponding CDTQuery methods that utilize the data type.  This method will create an index with the specified fields plus the field @datatype.  The @datatype can be used to model data objects.  The indexName will automatically be generated based on the dataType.</Abstract>
+			<DeclaredIn>CDTStore.h</DeclaredIn>
+			
+			<Declaration>- (void)createIndexWithDataType:(NSString *)dataType fields:(NSArray *)fields completionHandler:(void ( ^ ) ( NSError *error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>dataType</Name>
+					<Abstract type="html">Specifies the class on which to create an index.</Abstract>
+				</Parameter><Parameter>
+					<Name>fields</Name>
+					<Abstract type="html">Specifies the field names to index.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">Specifies the completionHandler to call upon completion. The creation of an index is an asynchronous event.  If the error is nil, the operation was successful.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/createIndexWithDataType:fields:completionHandler:</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CDTStore/deleteIndexWithDataType:completionHandler:</TokenIdentifier>
+			<Abstract type="html">Deletes an index with a data type.</Abstract>
+			<DeclaredIn>CDTStore.h</DeclaredIn>
+			
+			<Declaration>- (void)deleteIndexWithDataType:(NSString *)dataType completionHandler:(void ( ^ ) ( NSError *error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>dataType</Name>
+					<Abstract type="html">Specifies the class on which to delete an index.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">Specifies the completionHandler to call upon completion. The deletion of an index is an asynchronous event.  If the error is nil, the operation was successful.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/deleteIndexWithDataType:completionHandler:</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CDTStore/performQuery:completionHandler:</TokenIdentifier>
+			<Abstract type="html">Runs a query on the database. When the query is completed, the results are passed back in the NSArray.</Abstract>
+			<DeclaredIn>CDTStore.h</DeclaredIn>
+			
+			<Declaration>- (void)performQuery:(CDTQuery *)query completionHandler:(void ( ^ ) ( NSArray *results , NSError *error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>query</Name>
+					<Abstract type="html">Specifies the query to run</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">Specifies the completionHandler to call when the query completes.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/performQuery:completionHandler:</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CDTStore/save:completionHandler:</TokenIdentifier>
+			<Abstract type="html">Saves an object to the CDTStore.</Abstract>
+			<DeclaredIn>CDTStore.h</DeclaredIn>
+			
+			<Declaration>- (void)save:(id)objectToSave completionHandler:(void ( ^ ) ( id savedObject , NSError *error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>objectToSave</Name>
+					<Abstract type="html">Specifies the object to save.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">Specifies the completionHandler to call when the save is complete. Saving an object is an asynchronous event.  If error is nil, the operation was successful.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/save:completionHandler:</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CDTStore/delete:completionHandler:</TokenIdentifier>
+			<Abstract type="html">Deletes an object from the CDTStore.</Abstract>
+			<DeclaredIn>CDTStore.h</DeclaredIn>
+			
+			<Declaration>- (void)delete:(id)objectToDelete completionHandler:(void ( ^ ) ( NSString *deletedObjectId , NSString *deletedRevisionId , NSError *error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>objectToDelete</Name>
+					<Abstract type="html">Specifies the object to delete.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">Specifies the completionHandler to call when the deletion is complete. Deleting an object is an asynchronous event.  If error is nil, the operation was successful.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/delete:completionHandler:</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CDTStore/fetchById:completionHandler:</TokenIdentifier>
+			<Abstract type="html">Fetches an object with the objectId from the CDTStore</Abstract>
+			<DeclaredIn>CDTStore.h</DeclaredIn>
+			
+			<Declaration>- (void)fetchById:(NSString *)documentId completionHandler:(void ( ^ ) ( id object , NSError *error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>documentId</Name>
+					<Abstract type="html">Specifies the object to fetch.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">Specifies the completionHandler to call when the fetch is complete. Fetching an object is an asynchronous event.  If error is null, the operation was successful.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/fetchById:completionHandler:</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CDTStore/addOperation:</TokenIdentifier>
+			<Abstract type="html">Add an operation to the database queue</Abstract>
+			<DeclaredIn>CDTStore.h</DeclaredIn>
+			
+			<Declaration>- (void)addOperation:(NSOperation *)operation</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>operation</Name>
+					<Abstract type="html">Operation to add to the database operation queue</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/addOperation:</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+        
+	</File>
+</Tokens>

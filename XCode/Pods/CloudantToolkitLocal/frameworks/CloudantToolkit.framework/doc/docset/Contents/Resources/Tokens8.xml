@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Protocols/CDTPropertySerializer.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intf/CDTPropertySerializer</TokenIdentifier>
+			<Abstract type="html">Provides a custom serializer for a class.  You can handle cross-platform serialization of any object or override the default serialization of an object.  For example, CDTDataObjectMapper serializes NSDate objects.  However, you can use this extension to override how NSDate is serialized.  You might also provide serialization of CLLocation objects, which are currently ignored by the CDTDataObjectMapper.</Abstract>
+			<DeclaredIn>CDTPropertySerializer.h</DeclaredIn>
+            
+			
+			<NodeRef refid="8"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/CDTPropertySerializer/propertyValueToJSONValue:error:</TokenIdentifier>
+			<Abstract type="html">Get the JSON representation for the property value.</Abstract>
+			<DeclaredIn>CDTPropertySerializer.h</DeclaredIn>
+			
+			<Declaration>- (id)propertyValueToJSONValue:(id)propertyValue error:(NSError **)error</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>propertyValue</Name>
+					<Abstract type="html">The navtive property value to be serialized to a JSON dictionary.</Abstract>
+				</Parameter><Parameter>
+					<Name>error</Name>
+					<Abstract type="html">Error that occurred during serilization or nil</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">The JSON representation for the property value.</Abstract></ReturnValue>
+			<Anchor>//api/name/propertyValueToJSONValue:error:</Anchor>
+            <NodeRef refid="8"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/CDTPropertySerializer/jsonValueToPropertyValue:error:</TokenIdentifier>
+			<Abstract type="html">Get the property value from the JSON representation</Abstract>
+			<DeclaredIn>CDTPropertySerializer.h</DeclaredIn>
+			
+			<Declaration>- (id)jsonValueToPropertyValue:(id)jsonValue error:(NSError **)error</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>jsonValue</Name>
+					<Abstract type="html">The input JSON representation</Abstract>
+				</Parameter><Parameter>
+					<Name>error</Name>
+					<Abstract type="html">Error that occurred during deserilization or nil</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">The native property value</Abstract></ReturnValue>
+			<Anchor>//api/name/jsonValueToPropertyValue:error:</Anchor>
+            <NodeRef refid="8"/>
+		</Token>
+		
+        
+	</File>
+</Tokens>

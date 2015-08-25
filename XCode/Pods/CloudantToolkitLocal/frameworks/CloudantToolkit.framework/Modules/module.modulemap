@@ -1,0 +1,6 @@
+framework module CloudantToolkit {
+  umbrella header "CloudantToolkit.h"
+
+  export *
+  module * { export * }
+}

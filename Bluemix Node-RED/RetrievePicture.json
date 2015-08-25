@@ -1,0 +1,140 @@
+[{
+    "id": "47d21154.b82df",
+    "type": "ibmiot",
+    "name": "myPi"
+}, {
+    "id": "edc4f043.123b1",
+    "type": "ibmiot out",
+    "authentication": "apiKey",
+    "apiKey": "47d21154.b82df",
+    "outputType": "cmd",
+    "deviceId": "<your-IoT-deviceId>",
+    "deviceType": "myPi",
+    "eventCommandType": "sendPicture",
+    "format": "json",
+    "data": "message.event",
+    "name": "sendPicture Command",
+    "service": "registered",
+    "x": 605,
+    "y": 109,
+    "z": "58a89581.a7576c",
+    "wires": []
+}, {
+    "id": "96587190.69a79",
+    "type": "comment",
+    "name": "Device responds with image",
+    "info": "The device will process the sendPicture command and respond by inserting the base64 encoded image into Cloudant.",
+    "x": 799,
+    "y": 145,
+    "z": "58a89581.a7576c",
+    "wires": []
+}, {
+    "id": "dbda130.f2425f",
+    "type": "debug",
+    "name": "",
+    "active": true,
+    "console": "false",
+    "complete": "true",
+    "x": 529,
+    "y": 69,
+    "z": "58a89581.a7576c",
+    "wires": []
+}, {
+    "id": "3be864f6.c4179c",
+    "type": "ibmiot in",
+    "authentication": "apiKey",
+    "apiKey": "47d21154.b82df",
+    "inputType": "evt",
+    "deviceId": "<your-IoT-deviceId>",
+    "applicationId": "",
+    "deviceType": "myPi",
+    "eventType": "visitorAlert",
+    "commandType": "",
+    "format": "json",
+    "name": "visitorAlert Event",
+    "service": "registered",
+    "allDevices": false,
+    "allApplications": "",
+    "allDeviceTypes": false,
+    "allEvents": false,
+    "allCommands": "",
+    "allFormats": false,
+    "x": 90,
+    "y": 109,
+    "z": "58a89581.a7576c",
+    "wires": [
+        ["62e4de97.9d1b2", "e67374e2.198c88", "1f36d1b9.80f526"]
+    ]
+}, {
+    "id": "62e4de97.9d1b2",
+    "type": "debug",
+    "name": "INPUT",
+    "active": true,
+    "console": "false",
+    "complete": "true",
+    "x": 286,
+    "y": 68,
+    "z": "58a89581.a7576c",
+    "wires": []
+}, {
+    "id": "e67374e2.198c88",
+    "type": "function",
+    "name": "extract filename",
+    "func": "var newMsg = {\n    fileName : msg.payload.pictureFilename };\n\nreturn {payload : JSON.stringify(newMsg)};",
+    "outputs": 1,
+    "noerr": 0,
+    "x": 340,
+    "y": 109,
+    "z": "58a89581.a7576c",
+    "wires": [
+        ["dbda130.f2425f", "edc4f043.123b1"]
+    ]
+}, {
+    "id": "1f36d1b9.80f526",
+    "type": "function",
+    "name": "send notification",
+    "func": "var newmsg = {};\nnewmsg.headers = { \n    \"IBM-Application-Secret\" : \"<your-bluemix-application-secret>\" };\nnewmsg.payload = {\n\t\"message\" : {\n\t\t\"alert\"    : \"Someone is at the door!  \" + \n\t\t    \"Would you like to see who it is?\",\n\t\t\"url\"      : msg.payload.pictureFilename\n\t},\n\t\"settings\" : {\n\t\t\"apns\"   : {\n\t\t\t\"sound\" : \"doorbell/Doorbell.mp3\"\n\t    }\n\t},\n    \"target\" : {\n\t\t\"platforms\" : ['A']\n\t\t}\n};\n  \nreturn newmsg;",
+    "outputs": 1,
+    "noerr": 0,
+    "x": 340,
+    "y": 270,
+    "z": "58a89581.a7576c",
+    "wires": [
+        ["c64ecd70.ec3c88", "b0cbfd84.914e7"]
+    ]
+}, {
+    "id": "c64ecd70.ec3c88",
+    "type": "http request",
+    "name": "",
+    "method": "POST",
+    "ret": "txt",
+    "url": "https://mobile.ng.bluemix.net:443/push/v1/apps/<your-bluemix-appId>/messages",
+    "x": 582,
+    "y": 270,
+    "z": "58a89581.a7576c",
+    "wires": [
+        ["87eac4bc.aae62"]
+    ]
+}, {
+    "id": "87eac4bc.aae62",
+    "type": "debug",
+    "name": "",
+    "active": true,
+    "console": false,
+    "complete": "true",
+    "x": 747,
+    "y": 228,
+    "z": "58a89581.a7576c",
+    "wires": []
+}, {
+    "id": "b0cbfd84.914e7",
+    "type": "debug",
+    "name": "",
+    "active": true,
+    "console": "false",
+    "complete": "false",
+    "x": 544,
+    "y": 226,
+    "z": "58a89581.a7576c",
+    "wires": []
+}]

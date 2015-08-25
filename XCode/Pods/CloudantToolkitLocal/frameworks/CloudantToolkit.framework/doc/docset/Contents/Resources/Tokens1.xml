@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/CDTDataObjectMapper.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/CDTDataObjectMapper</TokenIdentifier>
+			<Abstract type="html">The CDTDataObjectMapper is used to convert data objects from Object to CDTDocumentRevision (and vice versa).  It conforms to the CDTObjectMapper protocol.</Abstract>
+			<DeclaredIn>CDTDataObjectMapper.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CDTDataObjectMapper/setPropertySerializer:forClassName:withDataType:</TokenIdentifier>
+			<Abstract type="html">Set a property serializer for a class name / data type.</Abstract>
+			<DeclaredIn>CDTDataObjectMapper.h</DeclaredIn>
+			
+			<Declaration>- (void)setPropertySerializer:(id&lt;CDTPropertySerializer&gt;)serializer forClassName:(NSString *)className withDataType:(NSString *)dataType</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>serializer</Name>
+					<Abstract type="html">The serializer to set.</Abstract>
+				</Parameter><Parameter>
+					<Name>className</Name>
+					<Abstract type="html">The class associated with the serializer.</Abstract>
+				</Parameter><Parameter>
+					<Name>dataType</Name>
+					<Abstract type="html">The data type associated with the serializer.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/setPropertySerializer:forClassName:withDataType:</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+        
+	</File>
+</Tokens>

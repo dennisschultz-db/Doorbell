@@ -1,0 +1,1101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="html/html; charset=utf-8" />
+		<title>CDTStore Class Reference</title>
+		<meta id="xcode-display" name="xcode-display" content="render"/>
+		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
+		<link rel="stylesheet" type="text/css" media="print" href="../css/stylesPrint.css" />
+		<meta name="generator" content="appledoc 2.2 (build 963)" />
+	</head>
+	<body>
+		<header id="top_header">
+			<div id="library" class="hideInXcode">
+				<h1><a id="libraryTitle" href="../index.html">CloudantToolkit </a></h1>
+				<a id="developerHome" href="../index.html">IBM</a>
+			</div>
+			
+			<div id="title" role="banner">
+				<h1 class="hideInXcode">CDTStore Class Reference</h1>
+			</div>
+			<ul id="headerButtons" role="toolbar">
+				<li id="toc_button">
+					<button aria-label="Show Table of Contents" role="checkbox" class="open" id="table_of_contents"><span class="disclosure"></span>Table of Contents</button>
+				</li>
+				<li id="jumpto_button" role="navigation">
+					<select id="jumpTo">
+	<option value="top">Jump To&#133;</option>
+	
+	<option value="overview">Overview</option>
+	
+	
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+	
+	
+	
+	<option value="properties">Properties</option>
+	
+	<option value="//api/name/mapper">&nbsp;&nbsp;&nbsp;&nbsp;mapper</option>
+	
+	<option value="//api/name/name">&nbsp;&nbsp;&nbsp;&nbsp;name</option>
+	
+	<option value="//api/name/requireMapperWithDatatype">&nbsp;&nbsp;&nbsp;&nbsp;requireMapperWithDatatype</option>
+	
+	
+	
+	
+	<option value="class_methods">Class Methods</option>
+	
+	<option value="//api/name/localStoreWithDatastore:">&nbsp;&nbsp;&nbsp;&nbsp;+ localStoreWithDatastore:</option>
+	
+	<option value="//api/name/remoteStoreWithUrl:completionHandler:">&nbsp;&nbsp;&nbsp;&nbsp;+ remoteStoreWithUrl:completionHandler:</option>
+	
+	
+	
+	
+	<option value="instance_methods">Instance Methods</option>
+	
+	<option value="//api/name/addOperation:">&nbsp;&nbsp;&nbsp;&nbsp;- addOperation:</option>
+	
+	<option value="//api/name/createIndexWithDataType:fields:completionHandler:">&nbsp;&nbsp;&nbsp;&nbsp;- createIndexWithDataType:fields:completionHandler:</option>
+	
+	<option value="//api/name/createIndexWithName:fields:completionHandler:">&nbsp;&nbsp;&nbsp;&nbsp;- createIndexWithName:fields:completionHandler:</option>
+	
+	<option value="//api/name/delete:completionHandler:">&nbsp;&nbsp;&nbsp;&nbsp;- delete:completionHandler:</option>
+	
+	<option value="//api/name/deleteIndexWithDataType:completionHandler:">&nbsp;&nbsp;&nbsp;&nbsp;- deleteIndexWithDataType:completionHandler:</option>
+	
+	<option value="//api/name/deleteIndexWithName:completionHandler:">&nbsp;&nbsp;&nbsp;&nbsp;- deleteIndexWithName:completionHandler:</option>
+	
+	<option value="//api/name/fetchById:completionHandler:">&nbsp;&nbsp;&nbsp;&nbsp;- fetchById:completionHandler:</option>
+	
+	<option value="//api/name/performQuery:completionHandler:">&nbsp;&nbsp;&nbsp;&nbsp;- performQuery:completionHandler:</option>
+	
+	<option value="//api/name/save:completionHandler:">&nbsp;&nbsp;&nbsp;&nbsp;- save:completionHandler:</option>
+	
+	
+	
+</select>
+				</li>
+			</ul>
+		</header>
+		<nav id="tocContainer" class="isShowingTOC">
+			<ul id="toc" role="tree">
+				
+<li role="treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#overview">Overview</a></span></li>
+
+
+
+
+<li role="treeitem" id="task_treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#tasks">Tasks</a></span><ul>
+	
+</ul></li>
+
+
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#properties">Properties</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/mapper">mapper</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/name">name</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/requireMapperWithDatatype">requireMapperWithDatatype</a></span></li>
+	
+</ul></li>
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#class_methods">Class Methods</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/localStoreWithDatastore:">localStoreWithDatastore:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/remoteStoreWithUrl:completionHandler:">remoteStoreWithUrl:completionHandler:</a></span></li>
+	
+</ul></li>
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/addOperation:">addOperation:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/createIndexWithDataType:fields:completionHandler:">createIndexWithDataType:fields:completionHandler:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/createIndexWithName:fields:completionHandler:">createIndexWithName:fields:completionHandler:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/delete:completionHandler:">delete:completionHandler:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/deleteIndexWithDataType:completionHandler:">deleteIndexWithDataType:completionHandler:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/deleteIndexWithName:completionHandler:">deleteIndexWithName:completionHandler:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/fetchById:completionHandler:">fetchById:completionHandler:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/performQuery:completionHandler:">performQuery:completionHandler:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/save:completionHandler:">save:completionHandler:</a></span></li>
+	
+</ul></li>
+
+
+			</ul>
+		</nav>
+		<article>
+			<div id="contents" class="isShowingTOC" role="main">
+				<a title="CDTStore Class Reference" name="top"></a>
+				<div class="main-navigation navigation-top">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="header">
+					<div class="section-header">
+						<h1 class="title title-header">CDTStore Class Reference</h1>
+					</div>		
+				</div>
+				<div id="container">	
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<td class="specification-title">Inherits from</td>
+	<td class="specification-value">NSObject</td>
+</tr><tr>
+	<td class="specification-title">Declared in</td>
+	<td class="specification-value">CDTStore.h</td>
+</tr>
+						</tbody></table></div>
+					
+                    
+                    
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">Overview</h2>
+						<p>The CDTStore class is a class cluster that abstracts an common interface for local and remote Cloudant data stores.  Local data stores use the CDTDatastore and remote data stores use REST API to modify the remote data store.</p>
+					</div>
+					
+					
+					
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						<h2 class="subtitle subtitle-tasks">Tasks</h2>
+						
+						
+						
+						
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/mapper">&nbsp;&nbsp;mapper</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/name">&nbsp;&nbsp;name</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/requireMapperWithDatatype">&nbsp;&nbsp;requireMapperWithDatatype</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/localStoreWithDatastore:">+&nbsp;localStoreWithDatastore:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/remoteStoreWithUrl:completionHandler:">+&nbsp;remoteStoreWithUrl:completionHandler:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/createIndexWithName:fields:completionHandler:">&ndash;&nbsp;createIndexWithName:fields:completionHandler:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/deleteIndexWithName:completionHandler:">&ndash;&nbsp;deleteIndexWithName:completionHandler:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/createIndexWithDataType:fields:completionHandler:">&ndash;&nbsp;createIndexWithDataType:fields:completionHandler:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/deleteIndexWithDataType:completionHandler:">&ndash;&nbsp;deleteIndexWithDataType:completionHandler:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/performQuery:completionHandler:">&ndash;&nbsp;performQuery:completionHandler:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/save:completionHandler:">&ndash;&nbsp;save:completionHandler:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/delete:completionHandler:">&ndash;&nbsp;delete:completionHandler:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/fetchById:completionHandler:">&ndash;&nbsp;fetchById:completionHandler:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/addOperation:">&ndash;&nbsp;addOperation:</a></code>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+					</div>
+					
+					
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Properties" name="properties"></a>
+						<h2 class="subtitle subtitle-methods">Properties</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/mapper" title="mapper"></a>
+	<h3 class="subsubtitle method-title">mapper</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Specifies the <a href="../Protocols/CDTObjectMapper.html">CDTObjectMapper</a> to use for mapping CDTDocumentRevision objects to objects and vice versa.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property id&lt;CDTObjectMapper&gt; mapper</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CDTStore.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/name" title="name"></a>
+	<h3 class="subsubtitle method-title">name</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The CDTStore name</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (readonly, atomic) NSString *name</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CDTStore.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/requireMapperWithDatatype" title="requireMapperWithDatatype"></a>
+	<h3 class="subsubtitle method-title">requireMapperWithDatatype</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Indicates whether a <a href="../Protocols/CDTObjectMapper.html">CDTObjectMapper</a> must be set when @datatype is part of the JSON body.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (atomic) BOOL requireMapperWithDatatype</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CDTStore.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Class Methods" name="class_methods"></a>
+						<h2 class="subtitle subtitle-methods">Class Methods</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/localStoreWithDatastore:" title="localStoreWithDatastore:"></a>
+	<h3 class="subsubtitle method-title">localStoreWithDatastore:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Creates a CDTStore that is local to the device.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (CDTStore *)localStoreWithDatastore:(CDTDatastore *)<em>datastore</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>datastore</em></dt>
+			<dd><p>Specifies the CDTDatastore from which to create the local CDTStore.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>The newly created CDTStore.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CDTStore.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/remoteStoreWithUrl:completionHandler:" title="remoteStoreWithUrl:completionHandler:"></a>
+	<h3 class="subsubtitle method-title">remoteStoreWithUrl:completionHandler:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Creates a CDTStore configured to access a remote Cloudant database.  If the remote Cloudant database does not exist, it will be created.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (void)remoteStoreWithUrl:(NSURL *)<em>url</em> completionHandler:(void ( ^ ) ( CDTStore *store , NSError *error ))<em>completionHandler</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>url</em></dt>
+			<dd><p>Specifies the NSURL for the Cloudant remote database.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>completionHandler</em></dt>
+			<dd><p>Specifies the completion handler to call when the CDTStore has been created.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>The newly created CDTStore.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CDTStore.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Instance Methods" name="instance_methods"></a>
+						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/addOperation:" title="addOperation:"></a>
+	<h3 class="subsubtitle method-title">addOperation:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Add an operation to the database queue</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)addOperation:(NSOperation *)<em>operation</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>operation</em></dt>
+			<dd><p>Operation to add to the database operation queue</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CDTStore.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/createIndexWithDataType:fields:completionHandler:" title="createIndexWithDataType:fields:completionHandler:"></a>
+	<h3 class="subsubtitle method-title">createIndexWithDataType:fields:completionHandler:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Creates an index with a data type. The data type is a cross-platform data type that can be used in <a href="../Classes/CDTQuery.html">CDTQuery</a>.  There are corresponding <a href="../Classes/CDTQuery.html">CDTQuery</a> methods that utilize the data type.  This method will create an index with the specified fields plus the field @datatype.  The @datatype can be used to model data objects.  The indexName will automatically be generated based on the dataType.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)createIndexWithDataType:(NSString *)<em>dataType</em> fields:(NSArray *)<em>fields</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>dataType</em></dt>
+			<dd><p>Specifies the class on which to create an index.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>fields</em></dt>
+			<dd><p>Specifies the field names to index.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>completionHandler</em></dt>
+			<dd><p>Specifies the completionHandler to call upon completion. The creation of an index is an asynchronous event.  If the error is nil, the operation was successful.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CDTStore.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/createIndexWithName:fields:completionHandler:" title="createIndexWithName:fields:completionHandler:"></a>
+	<h3 class="subsubtitle method-title">createIndexWithName:fields:completionHandler:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Creates an index on the CDTStore.  Indexes must be created on fields that are used in <a href="../Classes/CDTQuery.html">CDTQuery</a> operations.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)createIndexWithName:(NSString *)<em>indexName</em> fields:(NSArray *)<em>fields</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>indexName</em></dt>
+			<dd><p>Specifies the <a href="#//api/name/name">name</a> of the new index.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>fields</em></dt>
+			<dd><p>Specifies the field names to index.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>completionHandler</em></dt>
+			<dd><p>Specifies the completionHandler to call upon completion. The creation of an index is an asynchronous event.  If the error is nil, the operation was successful.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CDTStore.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/delete:completionHandler:" title="delete:completionHandler:"></a>
+	<h3 class="subsubtitle method-title">delete:completionHandler:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Deletes an object from the CDTStore.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)delete:(id)<em>objectToDelete</em> completionHandler:(void ( ^ ) ( NSString *deletedObjectId , NSString *deletedRevisionId , NSError *error ))<em>completionHandler</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>objectToDelete</em></dt>
+			<dd><p>Specifies the object to delete.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>completionHandler</em></dt>
+			<dd><p>Specifies the completionHandler to call when the deletion is complete. Deleting an object is an asynchronous event.  If error is nil, the operation was successful.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CDTStore.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/deleteIndexWithDataType:completionHandler:" title="deleteIndexWithDataType:completionHandler:"></a>
+	<h3 class="subsubtitle method-title">deleteIndexWithDataType:completionHandler:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Deletes an index with a data type.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)deleteIndexWithDataType:(NSString *)<em>dataType</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>dataType</em></dt>
+			<dd><p>Specifies the class on which to delete an index.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>completionHandler</em></dt>
+			<dd><p>Specifies the completionHandler to call upon completion. The deletion of an index is an asynchronous event.  If the error is nil, the operation was successful.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CDTStore.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/deleteIndexWithName:completionHandler:" title="deleteIndexWithName:completionHandler:"></a>
+	<h3 class="subsubtitle method-title">deleteIndexWithName:completionHandler:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Deletes an index with a specific <a href="#//api/name/name">name</a>.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)deleteIndexWithName:(NSString *)<em>indexName</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>indexName</em></dt>
+			<dd><p>Specifies the <a href="#//api/name/name">name</a> of the index to delete.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>completionHandler</em></dt>
+			<dd><p>Specifies the completionHandler to call upon completion. The deletion of an index is an asynchronous event.  If the error is nil, the operation was successful.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CDTStore.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/fetchById:completionHandler:" title="fetchById:completionHandler:"></a>
+	<h3 class="subsubtitle method-title">fetchById:completionHandler:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Fetches an object with the objectId from the CDTStore</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)fetchById:(NSString *)<em>documentId</em> completionHandler:(void ( ^ ) ( id object , NSError *error ))<em>completionHandler</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>documentId</em></dt>
+			<dd><p>Specifies the object to fetch.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>completionHandler</em></dt>
+			<dd><p>Specifies the completionHandler to call when the fetch is complete. Fetching an object is an asynchronous event.  If error is null, the operation was successful.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CDTStore.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/performQuery:completionHandler:" title="performQuery:completionHandler:"></a>
+	<h3 class="subsubtitle method-title">performQuery:completionHandler:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Runs a query on the database. When the query is completed, the results are passed back in the NSArray.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)performQuery:(CDTQuery *)<em>query</em> completionHandler:(void ( ^ ) ( NSArray *results , NSError *error ))<em>completionHandler</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>query</em></dt>
+			<dd><p>Specifies the query to run</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>completionHandler</em></dt>
+			<dd><p>Specifies the completionHandler to call when the query completes.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CDTStore.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/save:completionHandler:" title="save:completionHandler:"></a>
+	<h3 class="subsubtitle method-title">save:completionHandler:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Saves an object to the CDTStore.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)save:(id)<em>objectToSave</em> completionHandler:(void ( ^ ) ( id savedObject , NSError *error ))<em>completionHandler</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>objectToSave</em></dt>
+			<dd><p>Specifies the object to save.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>completionHandler</em></dt>
+			<dd><p>Specifies the completionHandler to call when the save is complete. Saving an object is an asynchronous event.  If error is nil, the operation was successful.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CDTStore.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
+					
+					
+                    
+                    
+				</div>
+				<div class="main-navigation navigation-bottom">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="footer">
+					<hr />
+                    <div class="footer-copyright">
+                        <p><span class="copyright">&copy; Copyright IBM Corp. 2015</span></p><br />
+                    </div>
+				</div>
+			</div>
+		</article>
+		<script type="text/javascript">
+			function jumpToChange()
+			{
+				window.location.hash = this.options[this.selectedIndex].value;
+			}
+			
+			function toggleTOC()
+			{
+				var contents = document.getElementById('contents');
+				var tocContainer = document.getElementById('tocContainer');
+				
+				if (this.getAttribute('class') == 'open')
+				{
+					this.setAttribute('class', '');
+					contents.setAttribute('class', '');
+					tocContainer.setAttribute('class', '');
+					
+					window.name = "hideTOC";
+				}
+				else
+				{
+					this.setAttribute('class', 'open');
+					contents.setAttribute('class', 'isShowingTOC');
+					tocContainer.setAttribute('class', 'isShowingTOC');
+					
+					window.name = "";
+				}
+				return false;
+			}
+			
+			function toggleTOCEntryChildren(e)
+			{
+				e.stopPropagation();
+				var currentClass = this.getAttribute('class');
+				if (currentClass == 'children') {
+					this.setAttribute('class', 'children open');
+				}
+				else if (currentClass == 'children open') {
+					this.setAttribute('class', 'children');
+				}
+				return false;
+			}
+			
+			function tocEntryClick(e)
+			{
+				e.stopPropagation();
+				return true;
+			}
+			
+			function init()
+			{
+				var selectElement = document.getElementById('jumpTo');
+				selectElement.addEventListener('change', jumpToChange, false);
+				
+				var tocButton = document.getElementById('table_of_contents');
+				tocButton.addEventListener('click', toggleTOC, false);
+				
+				var taskTreeItem = document.getElementById('task_treeitem');
+				if (taskTreeItem.getElementsByTagName('li').length > 0)
+				{
+					taskTreeItem.setAttribute('class', 'children');
+					taskTreeItem.firstChild.setAttribute('class', 'disclosure');
+				}
+				
+				var tocList = document.getElementById('toc');
+				
+				var tocEntries = tocList.getElementsByTagName('li');
+				for (var i = 0; i < tocEntries.length; i++) {
+					tocEntries[i].addEventListener('click', toggleTOCEntryChildren, false);
+				}
+				
+				var tocLinks = tocList.getElementsByTagName('a');
+				for (var i = 0; i < tocLinks.length; i++) {
+					tocLinks[i].addEventListener('click', tocEntryClick, false);
+				}
+				
+				if (window.name == "hideTOC") {
+					toggleTOC.call(tocButton);
+				}
+			}
+			
+			window.onload = init;
+			
+			// If showing in Xcode, hide the TOC and Header
+			if (navigator.userAgent.match(/xcode/i)) {
+				document.getElementById("contents").className = "hideInXcode"
+				document.getElementById("tocContainer").className = "hideInXcode"
+				document.getElementById("top_header").className = "hideInXcode"
+			}
+			
+		</script>
+	</body>
+</html>
