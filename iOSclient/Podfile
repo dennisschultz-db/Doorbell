@@ -1,0 +1,6 @@
+#use_frameworks!
+source 'https://github.com/CocoaPods/Specs.git'
+ pod 'IMFCore'
+ pod 'IMFPush'
+ pod 'MobileVLCKit'
+ pod 'MQTTClient'

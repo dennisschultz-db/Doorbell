@@ -1,1 +1,0 @@
-../../../../CloudantToolkitLocal/frameworks/CloudantToolkit.framework/Headers/CDTQuery.h

@@ -1,0 +1,20 @@
+PODS:
+  - IMFCore (1.0.7)
+  - IMFPush (1.0.0):
+    - IMFCore (~> 1.0.0)
+  - MobileVLCKit (2.2.1)
+  - MQTTClient (0.5.0)
+
+DEPENDENCIES:
+  - IMFCore
+  - IMFPush
+  - MobileVLCKit
+  - MQTTClient
+
+SPEC CHECKSUMS:
+  IMFCore: dfba72f52c9c55a5a0bd6bfe9b9e43e8db4de526
+  IMFPush: 40412a5cc2b4cd9e6db9034d58d0eaa16f0d0f58
+  MobileVLCKit: bb3359b2221316554129beb0c45827803a2de9be
+  MQTTClient: 9e765972d0cc584a2c35e3281b9ede94911e784f
+
+COCOAPODS: 0.39.0
