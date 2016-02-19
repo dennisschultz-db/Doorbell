@@ -47,6 +47,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
+    // ===========================================================================
+    ///  Configures the communication session with the Apple Watch
+    ///
     private func setupWatchConnectivity() {
         if (WCSession.isSupported()) {
             print("WCSession is Supported")
@@ -60,6 +63,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
 
+    // ===========================================================================
+    ///  Registers the notification settings for Push notifications.  This app
+    ///  uses custom notifications.  Notifications will present two buttons -
+    ///  Picture and Video.  Tapping one or the other will cause the app to switch
+    ///  to the desired mode (if requred) and refresh the media.
+    ///
     private func registerUserNotificationSettings() {
         // Register for push in iOS 8 and above
         // Actionable Notifications
@@ -112,6 +121,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidBecomeActive(application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
         logger.logInfoWithMessages("applicationDidBecomeActive")
+        
+        // Do not muck with the UI if the app was made active by the user selecting an
+        // action in a Push notification because the UI has already been configured in
+        // handleActionWithIdentifier
         if !wasLaunchedFromAction {
             if videoTabSelected() {
                 AppDelegate.vvc?.startStream()
@@ -196,12 +209,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
-    // ========================================
-    //  didRegisterForRemoteNotificationsWithDeviceToken
-    //    Registration was successful.
-    //    Initialize connection to Bluemix using the app's credentials
-    //    and register for IBM Push notifications.
-    // ========================================
+    // ===========================================================================
+    ///  Registration was successful. Initialize the connection to Bluemix using the app's 
+    ///  credentials and register for IBM Push Notifications
+    ///
     func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
         
         // Register for Bluemix push notifications
@@ -215,14 +226,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     
-    // ========================================
-    //   didReceiveRemoteNotifiation
-    //      Called by the framework whenever a remote notification (Push) is received
-    //   Retrieve the message text (from the body) and the filename of the image (from the URL).
-    //   If the app was Inactive or in the Background, the user has already tapped the notification
-    //   so go directly to load the image.  If the app was in the foreground, display an alert
-    //   so the user can choose to open the picture or not.
-    // ========================================
+    // ===========================================================================
+    ///   Called by the framework whenever a remote notification (Push) is received
     func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject])
     {
         
@@ -317,11 +322,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
         
+        // Let applicationDidBecomeActive know it should not diddle with the UI.
         wasLaunchedFromAction = true
         
         completionHandler();
     }
     
+    // Handoff from Apple Watch
     func application(application: UIApplication, continueUserActivity userActivity: NSUserActivity, restorationHandler: ([AnyObject]?) -> Void) -> Bool {
 
         print("userActivity is \(userActivity)")
@@ -345,9 +352,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     // ========================================
     //   registerVC
-    //     static method used by the VideoViewController to register itself
-    //     with the AppDelegate so the AppDelegate can later call the
-    //     updatePicture method of the VideoViewController.
+    //     static method used by the VideoViewController and PictureViewController to register themselves
+    //     with the AppDelegate so the AppDelegate can later call methods on them.
     // ========================================
     static func registerVVC(vc : VideoViewController) {
         self.vvc = vc
@@ -381,6 +387,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 extension AppDelegate: WCSessionDelegate {
     
+    // ===========================================================================
+    ///  Called by the framework when the Watch sends an immediate message
     func session(session: WCSession, didReceiveApplicationContext applicationContext: [String : AnyObject]) {
 
         print("didReceiveMessage")
@@ -426,6 +434,11 @@ extension AppDelegate: WCSessionDelegate {
         
     }
     
+    // Occasionally, I would see the Watch request a picture, but it would never respond to the file once it 
+    // was transferred by the phone.  Using this method, I was able to determine that the phone didn't believe
+    // the watch extension was installed on the Watch, even though it just received a command from it.  This 
+    // method helped me diagnose this.  The resolution was to use the Watch app on the Phone to uninstall and reinstall
+    // the watch extension.
     func session(session: WCSession, didFinishFileTransfer fileTransfer: WCSessionFileTransfer, error: NSError?) {
         if error != nil {
             print("Error transferring file \(error)")

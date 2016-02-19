@@ -12,6 +12,11 @@ import WatchConnectivity
 
 class WatchUtils: NSObject {
     
+    // ===========================================================================
+    ///  Sends a picture to the Apple Watch using transferFile
+    ///
+    ///  - parameters:
+    ///    - picture : The picture to be sent.
     static func transferPictureToWatch(picture: Picture) {
         print("building file for Watch")
         

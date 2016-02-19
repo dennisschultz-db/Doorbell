@@ -11,6 +11,9 @@ import WatchConnectivity
 
 class CommunicationManager: NSObject {
     
+    // ===========================================================================
+    ///  Sends a request to the phone for a picture.
+    ///
     static func sendPictureRequest() {
         log("=======================")
         log("button pressed")
@@ -29,6 +32,9 @@ class CommunicationManager: NSObject {
         }
     }
     
+    // ===========================================================================
+    ///  Logs the given message in the console and in the status area of the UI
+    ///
     static func log (message : String) {
         print(message)
         let root = WKExtension.sharedExtension().rootInterfaceController as? InterfaceController

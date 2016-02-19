@@ -28,6 +28,11 @@ class BluemixClient: NSObject {
         
     }
     
+    // ===========================================================================
+    ///  Registers the device with IBM Bluemix Push Notifications
+    ///
+    ///  - parameters:
+    ///    - token : Token returned when the device successfully registered with APNS.
     func registerForPush (token: NSData) {
         self.myToken = token
         if (self.pushService != nil)  {
@@ -45,6 +50,13 @@ class BluemixClient: NSObject {
     }
 
     
+    // ===========================================================================
+    ///  Subscribes the device to the given tag.
+    ///
+    ///  Currently unused.
+    ///
+    ///  - parameters:
+    ///    - tag : Tag to subscribe
     func application(application: UIApplication, subscribeToTag tag : String) {
         pushService!.subscribeToTags([tag], completionHandler: {(response,error) -> Void in
             if (error != nil) {

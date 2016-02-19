@@ -17,12 +17,8 @@ class PictureViewController: UIViewController {
     @IBOutlet weak var pictureImage: UIImageView!
     @IBOutlet weak var statusLabel: UILabel!
     
-    var picture: Picture!
-    var pictureData: String = ""
-    var decodedData: NSData!
-    
-    
     let logger = IMFLogger(forName: "PictureViewController")
+    
     
     override func viewWillAppear(animated: Bool) {
         // Override method invoked each time this view is added to the
@@ -39,7 +35,6 @@ class PictureViewController: UIViewController {
     }
 
     override func viewDidLoad() {
-
         logger.logInfoWithMessages("viewDidLoad")
 
         super.viewDidLoad()
@@ -48,7 +43,7 @@ class PictureViewController: UIViewController {
         // when push notifications come in.
         AppDelegate.registerPVC(self)
         
-       // Put a border around the image
+        // Put a border around the image
         pictureImage.layer.cornerRadius = 10.0
         pictureImage.clipsToBounds = true
         pictureImage.layer.borderColor = UIColor.whiteColor().CGColor
@@ -60,25 +55,47 @@ class PictureViewController: UIViewController {
 
     }
     
-    
     @IBAction func takePicture(sender: UIBarButtonItem) {
-        
         getPicture()
     }
     
+    // MARK: Private methods
     
-    // MARK: Public control methods:
-    
-    func stopStream() {
+    // ===========================================================================
+    ///  Updates the status on the display, then stops the video stream on the Pi.
+    ///
+    ///  - parameters:
+    ///     - message: A string to be written.
+    private func stopStream() {
         updateStatus("Stopping video stream...")
         LibraryAPI.sharedInstance.sendStopStreamCommand(streamStoppedCallback)
     }
     
+    // ===========================================================================
+    ///  Helper method that writes the given messge to the status label.
+    ///
+    ///  - parameters:
+    ///     - message: A string to be written.
+    private func updateStatus(message: String) {
+        statusLabel.text = message
+    }
+
+    
+    // MARK: Public control methods:
+    
+    // ===========================================================================
+    ///  Gets a picture, either from the Cloudant database or directly from the Raspberry Pi.
+    ///
+    ///  - parameters:
+    ///     - pictureId: The ID of the picture to be retrieved.  
+    ///       - If nil, the IoT Foundation
+    ///       will be used to ask the Pi to take a picture, then return it via MQTT events.
+    ///       - If not nil, pictureId contains a string representation of the _id of a
+    ///       Cloudant document for the picture.  Cloudant will be used to retrieve the picture.
     func getPicture(pictureId: String? = nil) {
         if (pictureId != nil) {
             logger.logInfoWithMessages("Get doorbell picture")
             updateStatus("Retrieving doorbell picture")
-            
             
             // Blank out the picture image.  This is done so it is obvious a new
             // picture has been loaded if a user takes successive pictures.
@@ -101,24 +118,25 @@ class PictureViewController: UIViewController {
     }
 
     // MARK: Completion Handlers:
-    
-    // ====================================
-    //   stopStartedCallback
-    //      Called when the streamStopped
-    //      events are recieved from the Raspberry Pi.
-    //
-    // ====================================
+
+    // ===========================================================================
+    ///  Called when the streamStopped event is recieved from the Raspberry Pi.
+    ///
+    ///  - parameters:
+    ///     - ipAddress: A string representing the IP address of the Raspberry Pi.
+    ///  This will always be a dummy or blank address when the stream is stopped.
     private func streamStoppedCallback (ipAddress: String) {
         getPicture()
     }
     
-    // ====================================
-    //   pictureTakenCallback
-    //      Called when a picture is 
-    //      recieved from the Raspberry Pi.
-    //
-    // ====================================
+    // ===========================================================================
+    ///  Called when the pictureTaken event is recieved from the Raspberry Pi.
+    ///
+    ///  - parameters:
+    ///     - picture: The picture that was returned from the Raspberry Pi.
     private func pictureTakenCallback (picture : Picture) {
+        
+        // Update UI on the main queue
         dispatch_async(dispatch_get_main_queue(), {
             self.busyIndicator.stopAnimating()
             
@@ -137,15 +155,6 @@ class PictureViewController: UIViewController {
         })
     }
     
-    // ====================================
-    //   pictureTakenCallback
-    //      Called by the API to update status
-    //      during a long-running command.
-    //
-    // ====================================
-    private func updateStatus(message: String) {
-        statusLabel.text = message
-    }
 
     override func restoreUserActivityState(activity: NSUserActivity) {
         stopStream()

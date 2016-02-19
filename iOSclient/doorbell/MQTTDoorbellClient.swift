@@ -21,13 +21,15 @@ class MQTTDoorbellClient: NSObject {
     let deviceType = configuration?["IoT"]!["DeviceType"] as! String
     let deviceID = configuration?["IoT"]!["DeviceID"] as! String
 
+    // Command and event strings that will be constructed in the init()
     let startStreamCommand: String?
     let stopStreamCommand: String?
     let takePictureCommand: String?
     let streamStartedEvent: String?
     let streamStoppedEvent: String?
     let pictureTakenEvent: String?
-    
+
+    // callbacks provided by the caller when invoking a command
     var streamCompletionHandler: ((String) -> Void)?
     var pictureCompletionHandler: ((AnyObject) -> Void)?
 
@@ -58,12 +60,9 @@ class MQTTDoorbellClient: NSObject {
     }
     
     
-    /** Creates a connection to the IoT Foundation and subscribes
-     to the events that will come from the Raspberry Pi.
-     
-    - Parameters: none
-    - Returns: nothing
-    */
+    // ===========================================================================
+    ///  Creates a connection to the IoT Foundation and subscribes to the events 
+    ///  that will come from the Raspberry Pi.
     func connect() {
 
         if (iotfSession == nil || iotfSession?.state != MQTTSessionManagerState.Connected) {
@@ -96,19 +95,17 @@ class MQTTDoorbellClient: NSObject {
         }
     }
     
-    /** Disconnects from the IoT Foundation.
-     
-    - Parameters: none
-    - Returns: nothing
-    */
+    // ===========================================================================
+    ///  Dsiconnects from the IoT Foundation.
     func disconnect() {
         iotfSession!.disconnect()
     }
     
-    /** publishes the command to start streaming video
-    - Parameters: none
-    - Returns: nothing
-    */
+    // ===========================================================================
+    ///  Sends the command to the Pi via IoT Foundation (MQTT)
+    ///
+    ///  - parameters:
+    ///    - completion : Completion handler that will be invoked when the command completes.
     func sendStartStreamCommand(completion: (String) -> Void) {
         
         logger.logInfoWithMessages("Sending startStream command")
@@ -128,11 +125,11 @@ class MQTTDoorbellClient: NSObject {
     }
 
     
-    /**
-     publishes the command to stop streaming video
-     - Parameters: none
-     - Returns: nothing
-     */
+    // ===========================================================================
+    ///  Sends the command to the Pi via IoT Foundation (MQTT)
+    ///
+    ///  - parameters:
+    ///    - completion : Completion handler that will be invoked when the command completes.
     func sendStopStreamCommand(completion: ((String) -> Void)?) {
         
         logger.logInfoWithMessages("Sending stopStream command")
@@ -151,11 +148,11 @@ class MQTTDoorbellClient: NSObject {
         
     }
     
-    /**
-     publishes the command to take a picture
-     - Parameters: none
-     - Returns: nothing
-     */
+    // ===========================================================================
+    ///  Sends the command to the Pi via IoT Foundation (MQTT)
+    ///
+    ///  - parameters:
+    ///    - completion : Completion handler that will be invoked when the command completes.
     func sendTakePictureCommand(completion: (AnyObject) -> Void) {
         
         logger.logInfoWithMessages("Sending takePicture command")
@@ -204,6 +201,13 @@ class MQTTDoorbellClient: NSObject {
 
 extension MQTTDoorbellClient: MQTTSessionManagerDelegate {
     
+    // ===========================================================================
+    ///  Called each time a message (event) is received.
+    ///
+    ///  - parameters:
+    ///    - data : Data sent along with the event
+    ///    - topic : Topic on which the message was received
+    ///    - retained: Indicates if the message should be retained on the broker
     func handleMessage(data: NSData!, onTopic topic: String!, retained: Bool) {
 
         logger.logInfoWithMessages("Received newMessage on: \(topic)")

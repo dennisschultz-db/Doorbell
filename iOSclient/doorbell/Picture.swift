@@ -25,10 +25,16 @@ class Picture: NSObject {
         self.date = date
     }
     
-    // Adds one packet to the end of the imageStringData.
-    // Used to assemble the string data when being recieved in packets
-    // over MQTT.  If finalPacket is true, the decoded data, watch image data
-    // and image will be created by this method.
+    // ===========================================================================
+    /// Adds one packet to the end of the imageStringData.
+    /// Used to assemble the string data when being recieved in packets
+    /// over MQTT.  If finalPacket is true, the decoded data, watch image data
+    /// and image will be created by this method.
+    ///
+    ///  - parameters:
+    ///    - packet : A "chunk" of Base64 encoded string that will be added to the
+    ///      picture's image string data.
+    ///    - finalPacket : boolean.  True if this is the last packet received.
     func addPacket( packet : String, finalPacket : Bool = false) {
         self.imageStringData = self.imageStringData + packet
         if finalPacket {
@@ -38,7 +44,7 @@ class Picture: NSObject {
                 options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters)
             image = UIImage(data: imageDecodedData!)
             
-            let smallerImage = resizeImage(image!, newWidth: 350)
+            let smallerImage = resizedImage(image!, newWidth: 350)
             watchImageData = NSData(data: UIImagePNGRepresentation(smallerImage)!)
         } else {
             imageComplete = false
@@ -79,7 +85,17 @@ class Picture: NSObject {
     }
     
     // MARK: helper functions
-    private func resizeImage(image: UIImage, newWidth: CGFloat) -> UIImage {
+    
+    // ===========================================================================
+    /// Returns a resized version of the image.  Used to scale down the image
+    /// for transfer to the Apple Watch.
+    ///
+    ///  - parameters:
+    ///    - image : UIImage to be resized
+    ///    - newWidth : Desired width of the image.  Height will be scaled
+    ///    accordingly.
+    ///  - returns:  UIImage scaled to the desired width
+    private func resizedImage(image: UIImage, newWidth: CGFloat) -> UIImage {
         
         let scale = newWidth / image.size.width
         let newHeight = image.size.height * scale

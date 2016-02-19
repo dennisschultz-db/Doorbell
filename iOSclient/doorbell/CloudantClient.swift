@@ -19,6 +19,12 @@ class CloudantClient: NSObject {
     }
     
     
+    // ===========================================================================
+    ///  Retrieves the picture data from the Cloudant database
+    ///
+    ///  - parameters:
+    ///    - pictureId : _id of the document.
+    ///    - completion: Completion handler that will be invoked when the command completes.
     func retrievePicture(pictureId : String, completion: (Picture) -> Void) {
         let url = NSURL(string: "https://\(username):\(password)@\(username).cloudant.com/pictures/\(pictureId)")
         

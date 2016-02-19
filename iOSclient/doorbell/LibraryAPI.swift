@@ -7,7 +7,7 @@
 //
 import Foundation
 
-// Wrapper for the MQTT and Bluemix APIs
+// Wrapper for the MQTT, Cloudant and Bluemix APIs
 class LibraryAPI: NSObject {
     
     private let bluemix : BluemixClient
@@ -30,26 +30,48 @@ class LibraryAPI: NSObject {
         super.init()
     }
     
+    // ===========================================================================
+    ///  Registers for push notifications from the IBM Bluemix Push Notifications service.
+    ///
+    ///  - parameters:
+    ///    - token : Token returned when the device successfully registered with APNS.
     func registerForPush(token: NSData) {
         bluemix.registerForPush(token)
     }
     
+    // ===========================================================================
+    ///  Sends the command to the Pi via IoT Foundation (MQTT)
+    ///
+    ///  - parameters:
+    ///    - completion : Completion handler that will be invoked when the command completes.
     func sendStartStreamCommand(completion: (String) -> Void) {
         mqtt.sendStartStreamCommand(completion)
     }
     
+    // ===========================================================================
+    ///  Sends the command to the Pi via IoT Foundation (MQTT)
+    ///
+    ///  - parameters:
+    ///    - completion : Completion handler that will be invoked when the command completes.
     func sendStopStreamCommand(completion: ((String) -> Void)?) {
         mqtt.sendStopStreamCommand(completion)
     }
     
+    // ===========================================================================
+    ///  Sends the command to the Pi via IoT Foundation (MQTT)
+    ///
+    ///  - parameters:
+    ///    - completion : Completion handler that will be invoked when the command completes.
     func sendTakePictureCommand(completion: (AnyObject) -> Void) {
         mqtt.sendTakePictureCommand(completion)
     }
 
-    // Performs all the steps necessary to have the Pi take a picture
-    // and send it back.
-    // statusUpdate - callback that provides ongoing status updates
-    // completion - callback that provides the completed picture
+    // ===========================================================================
+    ///  Performs all the steps necessary to have the Pi take a picture and send it back.
+    ///
+    ///  - parameters:
+    ///    - statusUpdate : callback that provides ongoing status updates
+    ///    - completion: callback that provides the completed picture
     func takePicture(statusUpdate: (String) -> Void, completion: (Picture) -> Void) {
 
         var picture : Picture = Picture(name: "temp", date: NSDate())
@@ -84,6 +106,13 @@ class LibraryAPI: NSObject {
         }
     }
     
+
+    // ===========================================================================
+    ///  Retrieves a picture from Cloudant
+    ///
+    ///  - parameters:
+    ///    - pictureId : _id of the document in the database
+    ///    - completion: callback that provides the completed picture
     func retrievePicture(pictureId : String, completion: (Picture) -> Void) {
         
         cloudant.retrievePicture(pictureId, completion: completion)
