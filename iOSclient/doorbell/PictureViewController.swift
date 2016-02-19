@@ -63,7 +63,7 @@ class PictureViewController: UIViewController {
     
     @IBAction func takePicture(sender: UIBarButtonItem) {
         
-        takePicture()
+        getPicture()
     }
     
     
@@ -74,16 +74,30 @@ class PictureViewController: UIViewController {
         LibraryAPI.sharedInstance.sendStopStreamCommand(streamStoppedCallback)
     }
     
-    func takePicture() {
-        logger.logInfoWithMessages("Take picture")
-        updateStatus("Taking picture...")
-        
-        // Blank out the picture image.  This is done so it is obvious a new
-        // picture has been loaded if a user takes successive pictures.
-        pictureImage.image = UIImage(imageLiteral: "doorbell-300x300.png")
-        
-        busyIndicator.startAnimating()
-        LibraryAPI.sharedInstance.takePicture(updateStatus, completion: pictureTakenCallback)
+    func getPicture(pictureId: String? = nil) {
+        if (pictureId != nil) {
+            logger.logInfoWithMessages("Get doorbell picture")
+            updateStatus("Retrieving doorbell picture")
+            
+            
+            // Blank out the picture image.  This is done so it is obvious a new
+            // picture has been loaded if a user takes successive pictures.
+            pictureImage.image = UIImage(imageLiteral: "doorbell-300x300.png")
+            
+            busyIndicator.startAnimating()
+            LibraryAPI.sharedInstance.retrievePicture(pictureId!, completion: pictureTakenCallback)
+            
+        } else {
+            logger.logInfoWithMessages("Take picture")
+            updateStatus("Taking picture...")
+            
+            // Blank out the picture image.  This is done so it is obvious a new
+            // picture has been loaded if a user takes successive pictures.
+            pictureImage.image = UIImage(imageLiteral: "doorbell-300x300.png")
+            
+            busyIndicator.startAnimating()
+            LibraryAPI.sharedInstance.takePicture(updateStatus, completion: pictureTakenCallback)
+        }
     }
 
     // MARK: Completion Handlers:
@@ -95,7 +109,7 @@ class PictureViewController: UIViewController {
     //
     // ====================================
     private func streamStoppedCallback (ipAddress: String) {
-        takePicture()
+        getPicture()
     }
     
     // ====================================
@@ -105,20 +119,22 @@ class PictureViewController: UIViewController {
     //
     // ====================================
     private func pictureTakenCallback (picture : Picture) {
-        self.busyIndicator.stopAnimating()
-        
-        // Format a human readable date string
-        let formatter = NSDateFormatter()
-        formatter.dateStyle = NSDateFormatterStyle.ShortStyle
-        formatter.timeStyle = .ShortStyle
-        let pictureDate = formatter.stringFromDate(picture.date)
-        
-        // Update status message and image
-        updateStatus(" \(pictureDate)")
-        pictureImage.image = picture.getImage()
-        
-        // Send the image and date string to Watch
-        WatchUtils.transferPictureToWatch(picture)
+        dispatch_async(dispatch_get_main_queue(), {
+            self.busyIndicator.stopAnimating()
+            
+            // Format a human readable date string
+            let formatter = NSDateFormatter()
+            formatter.dateStyle = NSDateFormatterStyle.ShortStyle
+            formatter.timeStyle = .ShortStyle
+            let pictureDate = formatter.stringFromDate(picture.date)
+            
+            // Update status message and image
+            self.updateStatus(" \(pictureDate)")
+            self.pictureImage.image = picture.getImage()
+            
+            // Send the image and date string to Watch
+            WatchUtils.transferPictureToWatch(picture)
+        })
     }
     
     // ====================================

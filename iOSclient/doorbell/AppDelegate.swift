@@ -116,7 +116,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             if videoTabSelected() {
                 AppDelegate.vvc?.startStream()
             } else {
-                AppDelegate.pvc?.takePicture()
+                AppDelegate.pvc?.getPicture()
             }
         }
         wasLaunchedFromAction = false
@@ -263,7 +263,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                                 if self.videoTabSelected() {
                                     self.switchToPicture()
                                 } else {
-                                    AppDelegate.pvc?.takePicture()
+                                    if let payload = userInfo["payload"] as? String {
+                                        AppDelegate.pvc?.getPicture(payload)
+                                    } else {
+                                        AppDelegate.pvc?.getPicture()
+                                    }
                                 }
                         }))
                         noticeAlert.addAction(UIAlertAction(
@@ -305,8 +309,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             if self.videoTabSelected() {
                 self.switchToPicture()
             } else {
-                AppDelegate.pvc?.takePicture()
-            }            
+                if let payload = userInfo["payload"] as? String {
+                    AppDelegate.pvc?.getPicture(payload)
+                } else {
+                    AppDelegate.pvc?.getPicture()
+                }
+            }
         }
         
         wasLaunchedFromAction = true
@@ -416,6 +424,14 @@ extension AppDelegate: WCSessionDelegate {
         }
         
         
+    }
+    
+    func session(session: WCSession, didFinishFileTransfer fileTransfer: WCSessionFileTransfer, error: NSError?) {
+        if error != nil {
+            print("Error transferring file \(error)")
+        } else {
+            print("Successful file transfer")
+        }
     }
     
 }

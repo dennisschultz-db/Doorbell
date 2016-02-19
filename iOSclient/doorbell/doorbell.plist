@@ -1,28 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-        <dict>
-            <key>IoT</key>
-            <dict>
-                <key>HostBase</key>
-                <string>messaging.internetofthings.ibmcloud.com</string>
-                <key>APIKey</key>
-                <string>your-IoTFoundation-apiKey</string>
-                <key>AuthenticationToken</key>
-                <string>your-IoTFoundation-AuthToken</string>
-                <key>OrgID</key>
-                <string>your-IoTFoundation-OrgID</string>
-                <key>DeviceType</key>
-                <string>your-IoTFoundation-DeviceType</string>
-                <key>DeviceID</key>
-                <string>your-IoTFoundation-DeviceID</string>
-            </dict>
-            <key>Bluemix</key>
-            <dict>
-                <key>Route</key>
-                <string>your-bluemix-application-route</string>
-                <key>GUID</key>
-                <string>your-bluemix-application-GUID</string>
-            </dict>
-        </dict>
-    </plist>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Cloudant</key>
+	<dict>
+		<key>username</key>
+		<string>f80b1a25-fe5b-4fd9-9e23-bef3cbb5e09e-bluemix</string>
+		<key>password</key>
+		<string>6e96eadc3ff5d6cf312121687cbcbd6c6e769bb2fcd3107d147ead42b0b6eb20</string>
+	</dict>
+	<key>IoT</key>
+	<dict>
+		<key>HostBase</key>
+		<string>messaging.internetofthings.ibmcloud.com</string>
+		<key>APIKey</key>
+		<string>a-youhpn-ljqbsb44le</string>
+		<key>AuthenticationToken</key>
+		<string>QK1aQeVJET-zmdcwtQ</string>
+		<key>OrgID</key>
+		<string>youhpn</string>
+		<key>DeviceType</key>
+		<string>myPi</string>
+		<key>DeviceID</key>
+		<string>b827eb91d2ed</string>
+	</dict>
+	<key>Bluemix</key>
+	<dict>
+		<key>Route</key>
+		<string>http://Node-RED-DWS.mybluemix.net</string>
+		<key>GUID</key>
+		<string>d8a7d26e-0d05-43ac-af8b-7febad40dee4</string>
+	</dict>
+</dict>
+</plist>

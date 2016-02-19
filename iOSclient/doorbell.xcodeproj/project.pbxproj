@@ -40,6 +40,7 @@
 		95C847261BEC41CE001EC601 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95C847251BEC41CE001EC601 /* Main.storyboard */; };
 		95C847301BEC42EA001EC601 /* LibraryAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C8472E1BEC42EA001EC601 /* LibraryAPI.swift */; };
 		95C847311BEC42EA001EC601 /* BluemixClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C8472F1BEC42EA001EC601 /* BluemixClient.swift */; };
+		95DCFE811C7689160016A4B1 /* CloudantClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DCFE801C7689160016A4B1 /* CloudantClient.swift */; };
 		95E3E7441C572498009C5EE2 /* CommunicationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E3E7431C572498009C5EE2 /* CommunicationManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -123,6 +124,7 @@
 		95C8472D1BEC42EA001EC601 /* DoorbellBridgingHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoorbellBridgingHeader.h; sourceTree = "<group>"; };
 		95C8472E1BEC42EA001EC601 /* LibraryAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LibraryAPI.swift; sourceTree = "<group>"; };
 		95C8472F1BEC42EA001EC601 /* BluemixClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BluemixClient.swift; sourceTree = "<group>"; };
+		95DCFE801C7689160016A4B1 /* CloudantClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudantClient.swift; sourceTree = "<group>"; };
 		95E3E7431C572498009C5EE2 /* CommunicationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommunicationManager.swift; sourceTree = "<group>"; };
 		E278372CE51D06CEB8428ED4 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -274,6 +276,7 @@
 				95C8472E1BEC42EA001EC601 /* LibraryAPI.swift */,
 				95C8472F1BEC42EA001EC601 /* BluemixClient.swift */,
 				955589A91C15F2D400588FC9 /* MQTTDoorbellClient.swift */,
+				95DCFE801C7689160016A4B1 /* CloudantClient.swift */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -507,6 +510,7 @@
 			files = (
 				956FDDA21BF2D99000347129 /* IMFLoggerExtension.swift in Sources */,
 				95496EBE1BF2CF26007B3026 /* PropertiesManager.swift in Sources */,
+				95DCFE811C7689160016A4B1 /* CloudantClient.swift in Sources */,
 				95C847301BEC42EA001EC601 /* LibraryAPI.swift in Sources */,
 				95C847131BEC4189001EC601 /* VideoViewController.swift in Sources */,
 				95C847191BEC4189001EC601 /* doorbell.xcdatamodeld in Sources */,

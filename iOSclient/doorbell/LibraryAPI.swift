@@ -12,6 +12,7 @@ class LibraryAPI: NSObject {
     
     private let bluemix : BluemixClient
     private let mqtt    : MQTTDoorbellClient
+    private let cloudant: CloudantClient
 
     // Implements Singleton pattern
     class var sharedInstance: LibraryAPI {
@@ -24,6 +25,7 @@ class LibraryAPI: NSObject {
     override init() {
         bluemix = BluemixClient()
         mqtt = MQTTDoorbellClient()
+        cloudant = CloudantClient()
 
         super.init()
     }
@@ -80,5 +82,11 @@ class LibraryAPI: NSObject {
                 picture.addPacket(data, finalPacket: false)
             }
         }
+    }
+    
+    func retrievePicture(pictureId : String, completion: (Picture) -> Void) {
+        
+        cloudant.retrievePicture(pictureId, completion: completion)
+        
     }
 }

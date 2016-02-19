@@ -13,14 +13,14 @@ import WatchConnectivity
 class WatchUtils: NSObject {
     
     static func transferPictureToWatch(picture: Picture) {
-        print("building file")
+        print("building file for Watch")
         
         let fm = NSFileManager()
         let url = try! fm.URLForDirectory(.CachesDirectory, inDomain: .UserDomainMask, appropriateForURL: nil, create: true).URLByAppendingPathComponent(WatchConstants.fileName)
         
         picture.getWatchImageData()?.writeToURL(url, atomically: true)
         
-        print("sending picture")
+        print("sending picture to Watch")
         // Send the image and date string to Watch
 
         let metadata = [
