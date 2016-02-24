@@ -134,11 +134,16 @@ class PictureViewController: UIViewController {
     ///
     ///  - parameters:
     ///     - picture: The picture that was returned from the Raspberry Pi.
-    private func pictureTakenCallback (picture : Picture) {
+    private func pictureTakenCallback (error : String?, picture : Picture) {
         
         // Update UI on the main queue
         dispatch_async(dispatch_get_main_queue(), {
             self.busyIndicator.stopAnimating()
+            
+            guard error == nil else {
+                self.updateStatus(error!)
+                return
+            }
             
             // Format a human readable date string
             let formatter = NSDateFormatter()

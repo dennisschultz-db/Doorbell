@@ -416,7 +416,12 @@ extension AppDelegate: WCSessionDelegate {
                 func statusUpdate (message: String) {
                 }
                 
-                func pictureIsReady (picture: Picture) {
+                func pictureIsReady (status: String?, picture: Picture) {
+                    guard status == nil else {
+                        print(status!)
+                        return
+                    }
+                    
                     if let _ = picture.getWatchImageData() {
                         WatchUtils.transferPictureToWatch(picture)
                     } else {

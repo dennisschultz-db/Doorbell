@@ -72,7 +72,7 @@ class LibraryAPI: NSObject {
     ///  - parameters:
     ///    - statusUpdate : callback that provides ongoing status updates
     ///    - completion: callback that provides the completed picture
-    func takePicture(statusUpdate: (String) -> Void, completion: (Picture) -> Void) {
+    func takePicture(statusUpdate: (String) -> Void, completion: (String?, Picture) -> Void) {
 
         var picture : Picture = Picture(name: "temp", date: NSDate())
         
@@ -85,7 +85,7 @@ class LibraryAPI: NSObject {
             let total = packet["size"]as! Int
             
             logger.logInfoWithMessages("Packet " + String(pos) + "/" + String(total) + " of file " + picId)
-            statusUpdate("Retrieving picture...")
+            statusUpdate("Retrieving picture... \(pos) of \(total)")
         
             // Initialize picture if this is the first packet
             if pos == 0 {
@@ -98,7 +98,7 @@ class LibraryAPI: NSObject {
                 logger.logInfoWithMessages("Got all packets")
                 picture.addPacket(data, finalPacket: true)
                                 
-                completion(picture)
+                completion(nil, picture)
                 
             } else {
                 picture.addPacket(data, finalPacket: false)
@@ -113,7 +113,7 @@ class LibraryAPI: NSObject {
     ///  - parameters:
     ///    - pictureId : _id of the document in the database
     ///    - completion: callback that provides the completed picture
-    func retrievePicture(pictureId : String, completion: (Picture) -> Void) {
+    func retrievePicture(pictureId : String, completion: (String?, Picture) -> Void) {
         
         cloudant.retrievePicture(pictureId, completion: completion)
         
