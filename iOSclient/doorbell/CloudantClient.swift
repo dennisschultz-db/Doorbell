@@ -73,5 +73,48 @@ class CloudantClient: NSObject {
         task.resume()
         
     }
+    
+    func retrievePictureList( completion: (String?, [String]) -> Void) {
+        let url = NSURL(string: "https://\(username):\(password)@\(username).cloudant.com/pictures/_all_docs")
+        
+        let task = NSURLSession.sharedSession().dataTaskWithURL(url!) {(data, response, error) in
+            do {
+                
+                guard let dat = data else {
+                    completion("No data returned from Cloudant", [])
+                    return
+                }
+                
+                guard let json = try NSJSONSerialization.JSONObjectWithData(dat, options: []) as? NSDictionary else {
+                    completion("Unable to convert Cloudant data to JSON", [])
+                    return
+                }
+                
+                if let cloudantError = json["error"] as? String {
+                    completion("Cloudant error: \(cloudantError)", [])
+                    return
+                }
+                
+                let rows = json["rows"]! as! Array<NSDictionary> as Array
+                
+                var response: [String] = []
+
+                for item in rows {
+                    response.append((item["id"] as? String)!)
+                }
+
+                
+                completion(nil,response)
+                
+                
+            } catch {
+                print("Error converting response \(error)")
+            }
+            
+        }
+        
+        task.resume()
+
+    }
 
 }

@@ -18,6 +18,10 @@
 		951C7DA71C4967B6002B12C7 /* Watch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 951C7D891C4967B6002B12C7 /* Watch.app */; };
 		951C7DB11C49A5A5002B12C7 /* test.apns in Resources */ = {isa = PBXBuildFile; fileRef = 951C7DB01C49A5A5002B12C7 /* test.apns */; };
 		953277751C32142E004105D4 /* Picture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953277741C32142E004105D4 /* Picture.swift */; };
+		954473D41C7F658400F337F0 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954473D31C7F658400F337F0 /* PhotoCollectionViewCell.swift */; };
+		954473D61C7F65B400F337F0 /* PhotoGalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954473D51C7F65B400F337F0 /* PhotoGalleryViewController.swift */; };
+		954473D81C7F65DD00F337F0 /* SinglePhotoViewCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954473D71C7F65DD00F337F0 /* SinglePhotoViewCollectionCell.swift */; };
+		954473DA1C7F660700F337F0 /* SinglePhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954473D91C7F660700F337F0 /* SinglePhotoViewController.swift */; };
 		95488D5F1C56BF5E00565424 /* WatchConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95488D5E1C56BF5E00565424 /* WatchConstants.swift */; };
 		95488D601C56BF7800565424 /* WatchConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95488D5E1C56BF5E00565424 /* WatchConstants.swift */; };
 		95496EBC1BF2CC44007B3026 /* doorbell.plist in Resources */ = {isa = PBXBuildFile; fileRef = 95496EBB1BF2CC44007B3026 /* doorbell.plist */; };
@@ -102,6 +106,10 @@
 		951C7DA41C4967B6002B12C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		951C7DB01C49A5A5002B12C7 /* test.apns */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test.apns; sourceTree = "<group>"; };
 		953277741C32142E004105D4 /* Picture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Picture.swift; sourceTree = "<group>"; };
+		954473D31C7F658400F337F0 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
+		954473D51C7F65B400F337F0 /* PhotoGalleryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoGalleryViewController.swift; sourceTree = "<group>"; };
+		954473D71C7F65DD00F337F0 /* SinglePhotoViewCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SinglePhotoViewCollectionCell.swift; sourceTree = "<group>"; };
+		954473D91C7F660700F337F0 /* SinglePhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SinglePhotoViewController.swift; sourceTree = "<group>"; };
 		95488D5E1C56BF5E00565424 /* WatchConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchConstants.swift; sourceTree = "<group>"; };
 		95496EBB1BF2CC44007B3026 /* doorbell.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = doorbell.plist; path = doorbell/doorbell.plist; sourceTree = "<group>"; };
 		95496EBD1BF2CF26007B3026 /* PropertiesManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PropertiesManager.swift; sourceTree = "<group>"; };
@@ -207,6 +215,8 @@
 			children = (
 				95C847121BEC4189001EC601 /* VideoViewController.swift */,
 				957266471C2F58B900F9AC55 /* PictureViewController.swift */,
+				954473D51C7F65B400F337F0 /* PhotoGalleryViewController.swift */,
+				954473D91C7F660700F337F0 /* SinglePhotoViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -266,6 +276,8 @@
 			isa = PBXGroup;
 			children = (
 				953277741C32142E004105D4 /* Picture.swift */,
+				954473D31C7F658400F337F0 /* PhotoCollectionViewCell.swift */,
+				954473D71C7F65DD00F337F0 /* SinglePhotoViewCollectionCell.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -516,9 +528,13 @@
 				95C847191BEC4189001EC601 /* doorbell.xcdatamodeld in Sources */,
 				955589AA1C15F2D400588FC9 /* MQTTDoorbellClient.swift in Sources */,
 				95725D051C4ECF0F005C44B8 /* WatchUtils.swift in Sources */,
+				954473D61C7F65B400F337F0 /* PhotoGalleryViewController.swift in Sources */,
 				953277751C32142E004105D4 /* Picture.swift in Sources */,
 				95A5632A1C5AF72D004E6245 /* HandoffHelper.swift in Sources */,
 				95C847111BEC4189001EC601 /* AppDelegate.swift in Sources */,
+				954473D81C7F65DD00F337F0 /* SinglePhotoViewCollectionCell.swift in Sources */,
+				954473DA1C7F660700F337F0 /* SinglePhotoViewController.swift in Sources */,
+				954473D41C7F658400F337F0 /* PhotoCollectionViewCell.swift in Sources */,
 				957266481C2F58B900F9AC55 /* PictureViewController.swift in Sources */,
 				95C847311BEC42EA001EC601 /* BluemixClient.swift in Sources */,
 				95488D5F1C56BF5E00565424 /* WatchConstants.swift in Sources */,

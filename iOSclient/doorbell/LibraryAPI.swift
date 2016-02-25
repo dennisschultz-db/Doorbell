@@ -118,4 +118,16 @@ class LibraryAPI: NSObject {
         cloudant.retrievePicture(pictureId, completion: completion)
         
     }
+
+    // ===========================================================================
+    ///  Retrieves a list of pictures from Cloudant
+    ///
+    ///  - parameters:
+    ///    - completion: callback that provides the completed picture
+    func retrievePictureList(completion: (String?, [String]) -> Void) {
+        
+        cloudant.retrievePictureList(completion)
+        
+    }
+
 }
