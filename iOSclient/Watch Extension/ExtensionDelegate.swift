@@ -59,6 +59,11 @@ extension ExtensionDelegate: WKExtensionDelegate {
                 Handoff.ActivityType.ViewPicture.rawValue,
                 userInfo: [Handoff().activityValueKey:"Push"],
                 webpageURL: nil)
+            print("remoteNotification is \(remoteNotification)")
+            if let payload = remoteNotification["payload"] as? String {
+                CommunicationManager.sendCloudantPictureRequest(payload)
+            }
+            
         } else if identifier == "video" {
             root!.updateUserActivity(
                 Handoff.ActivityType.ViewVideo.rawValue,

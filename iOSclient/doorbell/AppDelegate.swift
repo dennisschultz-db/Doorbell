@@ -387,59 +387,70 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 extension AppDelegate: WCSessionDelegate {
     
+    func session(session: WCSession, didReceiveMessage message: [String : AnyObject]) {
+        print("didReceiveMessage")
+        
+        func statusUpdate (message: String) {
+        }
+        
+        func pictureIsReady (status: String?, picture: Picture) {
+            guard status == nil else {
+                print(status!)
+                return
+            }
+            
+            if let _ = picture.getWatchImageData() {
+                WatchUtils.transferPictureToWatch(picture)
+            } else {
+                print("no image in picture")
+            }
+        }
+        
+        if let _ = message[WatchConstants.takePictureCommand] {
+            print("takePictureCommand")
+            LibraryAPI.sharedInstance.takePicture(statusUpdate, completion: pictureIsReady)
+            
+        } else if let pictureId = message[WatchConstants.getCloudantPictureCommand] as? String {
+            print("getCloudantPictureCommand \(pictureId)")
+            LibraryAPI.sharedInstance.retrievePicture(pictureId, completion: pictureIsReady)
+            
+        }
+    }
+    
     // ===========================================================================
     ///  Called by the framework when the Watch sends an immediate message
     func session(session: WCSession, didReceiveApplicationContext applicationContext: [String : AnyObject]) {
 
-        print("didReceiveMessage")
+        print("didReceiveApplicationContext")
         
-        let state = UIApplication.sharedApplication().applicationState
-        if state == UIApplicationState.Background || state == UIApplicationState.Inactive {
-            // iPhone app won't be able to talk to IoT Foundation if it is in the background
-            // Send the Watch a dummy file with a status message
-            let fm = NSFileManager()
-            let url = try! fm.URLForDirectory(.CachesDirectory, inDomain: .UserDomainMask, appropriateForURL: nil, create: true).URLByAppendingPathComponent(WatchConstants.fileName)
-            
-            print("sending dummy message")
-            // Send the image and date string to Watch
-            
-            let metadata = [
-                WatchConstants.statusMetadataKey:"BACKGROUND"]
-            
-            let session = WCSession.defaultSession()
-            session.transferFile(url, metadata: metadata)
-            
-        } else {
-            
-            // iOS app is in foreground
-            if let _ = applicationContext[WatchConstants.takePictureCommand] {
-                func statusUpdate (message: String) {
-                }
-                
-                func pictureIsReady (status: String?, picture: Picture) {
-                    guard status == nil else {
-                        print(status!)
-                        return
-                    }
-                    
-                    if let _ = picture.getWatchImageData() {
-                        WatchUtils.transferPictureToWatch(picture)
-                    } else {
-                        print("no image in picture")
-                    }
-                }
-                
-                print("picture request")
-                LibraryAPI.sharedInstance.takePicture(statusUpdate, completion: pictureIsReady)
-                
-            }
-            
+        func statusUpdate (message: String) {
         }
         
-        
+        func pictureIsReady (status: String?, picture: Picture) {
+            guard status == nil else {
+                print(status!)
+                return
+            }
+            
+            if let _ = picture.getWatchImageData() {
+                WatchUtils.transferPictureToWatch(picture)
+            } else {
+                print("no image in picture")
+            }
+        }
+
+        if let _ = applicationContext[WatchConstants.takePictureCommand] {
+            print("takePictureCommand")
+            LibraryAPI.sharedInstance.takePicture(statusUpdate, completion: pictureIsReady)
+            
+        } else if let pictureId = applicationContext[WatchConstants.getCloudantPictureCommand] as? String {
+            print("getCloudantPictureCommand \(pictureId)")
+            LibraryAPI.sharedInstance.retrievePicture(pictureId, completion: pictureIsReady)
+
+        }
     }
     
-    // Occasionally, I would see the Watch request a picture, but it would never respond to the file once it 
+    // Occasionally, I would see the Watch request a picture, but it would never respond to the file once it
     // was transferred by the phone.  Using this method, I was able to determine that the phone didn't believe
     // the watch extension was installed on the Watch, even though it just received a command from it.  This 
     // method helped me diagnose this.  The resolution was to use the Watch app on the Phone to uninstall and reinstall

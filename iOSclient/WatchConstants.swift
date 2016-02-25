@@ -10,6 +10,7 @@ import Foundation
 
 struct WatchConstants {
     static let takePictureCommand = "takePicture"
+    static let getCloudantPictureCommand = "getPicture"
     static let dateContext = "date"
     static let imageDataContext = "imageData"
     

@@ -36,6 +36,12 @@
 		<string>com.ibm.dws.doorbell.picture</string>
 		<string>com.ibm.dws.doorbell.video</string>
 	</array>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>fetch</string>
+		<string>newsstand-content</string>
+		<string>remote-notification</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>Launch Screen</string>
 	<key>UIMainStoryboardFile</key>

@@ -15,17 +15,36 @@ class CommunicationManager: NSObject {
     ///  Sends a request to the phone for a picture.
     ///
     static func sendPictureRequest() {
-        log("=======================")
         log("button pressed")
         
         if WCSession.isSupported() {
             let session = WCSession.defaultSession()
             
-            log("requesting picture")
+            log("Requesting picture...")
             
             // updateApplicationContext - background request for a picture to be taken
             do {
+                session.sendMessage([WatchConstants.takePictureCommand: "NOW"],replyHandler: nil, errorHandler: nil)
                 try session.updateApplicationContext([WatchConstants.takePictureCommand: "NOW"])
+            } catch {
+                log("\(error)")
+            }
+        }
+    }
+    
+    // ===========================================================================
+    ///  Sends a request to the phone for a picture from Cloudant.
+    ///
+    static func sendCloudantPictureRequest(pictureId: String) {
+        log("Fetching picture...")
+        
+        if WCSession.isSupported() {
+            let session = WCSession.defaultSession()
+            
+            // updateApplicationContext - background request for a picture to be taken
+            do {
+                session.sendMessage([WatchConstants.getCloudantPictureCommand: pictureId],replyHandler: nil, errorHandler: nil)
+//                try session.updateApplicationContext([WatchConstants.getCloudantPictureCommand: pictureId])
             } catch {
                 log("\(error)")
             }
