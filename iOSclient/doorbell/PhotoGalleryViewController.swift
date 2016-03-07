@@ -100,7 +100,11 @@ class PhotoGalleryViewController: UIViewController, UICollectionViewDataSource, 
         
         // set placeholder until image downloaded from server.
         newCell.galleryImage.image = UIImage(named: "placeholder")
-        newCell.idLabel.text = photo.name
+        
+        let formatter = NSDateFormatter()
+        formatter.dateStyle = .ShortStyle
+        formatter.timeStyle = .ShortStyle
+        newCell.idLabel.text = formatter.stringFromDate(photo.date)
         
         // Download photo asynchronously
         self.downloadCellPhotoInBackground(photo.name, photoCell: newCell)
@@ -169,11 +173,13 @@ class PhotoGalleryViewController: UIViewController, UICollectionViewDataSource, 
             dispatch_async( dispatch_get_main_queue(), {
                 photoCell.galleryImage.image = UIImage(data: picture.getWatchImageData()!)
                 photoCell.galleryImage.contentMode = UIViewContentMode.ScaleAspectFill
+                photoCell.galleryImage.clipsToBounds = true
                 
                 // Replace the temporary image in the photoList with this one.
                 for (index,oldPhoto) in self.photoList.enumerate() {
                     if oldPhoto.name == picture.name {
                         self.photoList[index] = picture
+                        break
                     }
                 }
 

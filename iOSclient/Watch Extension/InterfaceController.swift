@@ -56,7 +56,7 @@ class InterfaceController: WKInterfaceController {
     
     @IBAction func buttonTapped () {
         pictureImage.setBackgroundImageNamed("doorbell-180x180")
-        CommunicationManager.sendCloudantPictureRequest("1456300504662")
+        CommunicationManager.sendCloudantPictureRequest("1456350957271")
     }
     
 }

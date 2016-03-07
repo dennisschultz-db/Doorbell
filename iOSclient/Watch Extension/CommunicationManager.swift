@@ -42,12 +42,7 @@ class CommunicationManager: NSObject {
             let session = WCSession.defaultSession()
             
             // updateApplicationContext - background request for a picture to be taken
-            do {
-                session.sendMessage([WatchConstants.getCloudantPictureCommand: pictureId],replyHandler: nil, errorHandler: nil)
-//                try session.updateApplicationContext([WatchConstants.getCloudantPictureCommand: pictureId])
-            } catch {
-                log("\(error)")
-            }
+            session.sendMessage([WatchConstants.getCloudantPictureCommand: pictureId],replyHandler: nil, errorHandler: nil)
         }
     }
     

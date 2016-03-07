@@ -4,7 +4,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Video-->
@@ -290,8 +289,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="6tY-oq-akz">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="6tY-oq-akz">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="431"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="rkD-YW-sCz">
                                     <size key="itemSize" width="100" height="100"/>
@@ -308,13 +307,15 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="m1W-qG-kUp">
-                                                    <rect key="frame" x="0.0" y="0.0" width="100" height="125"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="ID" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TZ1-XO-wDh">
-                                                    <rect key="frame" x="8" y="59.5" width="84" height="20.5"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ID" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TZ1-XO-wDh">
+                                                    <rect key="frame" x="0.0" y="65.5" width="100" height="14"/>
+                                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-BoldItalic" family="Helvetica Neue" pointSize="12"/>
                                                     <color key="textColor" red="0.10980392160000001" green="0.69803921570000005" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
+                                                    <size key="shadowOffset" width="1" height="1"/>
                                                 </label>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -323,10 +324,11 @@
                                             <constraint firstAttribute="trailing" secondItem="m1W-qG-kUp" secondAttribute="trailing" id="5bd-mU-gZ4"/>
                                             <constraint firstItem="m1W-qG-kUp" firstAttribute="top" secondItem="agf-sF-RGM" secondAttribute="top" id="7OZ-WJ-bgF"/>
                                             <constraint firstItem="TZ1-XO-wDh" firstAttribute="centerX" secondItem="agf-sF-RGM" secondAttribute="centerX" id="HfQ-ZC-38L"/>
+                                            <constraint firstAttribute="trailing" secondItem="TZ1-XO-wDh" secondAttribute="trailing" id="J19-xu-bz9"/>
                                             <constraint firstAttribute="bottom" secondItem="TZ1-XO-wDh" secondAttribute="bottom" constant="20" id="OTc-Kq-IgW"/>
-                                            <constraint firstAttribute="trailingMargin" secondItem="TZ1-XO-wDh" secondAttribute="trailing" id="Vev-MD-hXS"/>
-                                            <constraint firstItem="TZ1-XO-wDh" firstAttribute="leading" secondItem="agf-sF-RGM" secondAttribute="leadingMargin" id="c3k-3m-EtS"/>
+                                            <constraint firstAttribute="bottom" secondItem="m1W-qG-kUp" secondAttribute="bottom" id="d9Y-BE-EBY"/>
                                             <constraint firstItem="m1W-qG-kUp" firstAttribute="leading" secondItem="agf-sF-RGM" secondAttribute="leading" id="gjj-bH-Ps1"/>
+                                            <constraint firstItem="TZ1-XO-wDh" firstAttribute="leading" secondItem="agf-sF-RGM" secondAttribute="leading" id="wGj-NG-Mtd"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="galleryImage" destination="m1W-qG-kUp" id="dkO-eG-LWK"/>
@@ -336,7 +338,7 @@
                                 </cells>
                             </collectionView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="jJt-r7-PFa">
-                                <rect key="frame" x="141.5" y="221.5" width="37" height="37"/>
+                                <rect key="frame" x="141" y="221" width="37" height="37"/>
                                 <color key="color" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </activityIndicatorView>
                         </subviews>
@@ -352,6 +354,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Gallery" id="brF-GY-Uxw">
                         <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="Znf-fM-mvE">
+                            <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                             <connections>
                                 <action selector="refreshButtonAction:" destination="lds-mN-5zi" id="jVv-Yp-MF7"/>
                             </connections>
@@ -380,8 +383,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="oQC-fR-c58">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="oQC-fR-c58">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="431"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="DZI-9E-WoC">
                                     <size key="itemSize" width="300" height="200"/>
@@ -391,7 +394,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CellSinglePhoto" id="amI-Xv-mSm" customClass="SinglePhotoCollectionViewCell" customModule="doorbell" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="147.5" width="300" height="200"/>
+                                        <rect key="frame" x="0.0" y="123" width="300" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="300" height="200"/>
@@ -402,7 +405,7 @@
                                                     <gestureRecognizers/>
                                                 </imageView>
                                                 <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="IJA-8Z-rCd">
-                                                    <rect key="frame" x="131.5" y="81.5" width="37" height="37"/>
+                                                    <rect key="frame" x="131" y="81" width="37" height="37"/>
                                                     <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                 </activityIndicatorView>
                                             </subviews>

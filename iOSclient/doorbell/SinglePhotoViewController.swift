@@ -35,6 +35,10 @@ class SinglePhotoViewController: UIViewController, UICollectionViewDataSource, U
     
     // MARK: - view function
     
+    override func viewWillAppear(animated: Bool) {
+        self.navigationController?.navigationBar.tintColor = UIColor.blackColor()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -97,6 +101,7 @@ class SinglePhotoViewController: UIViewController, UICollectionViewDataSource, U
         let photoRecord = self.photoList[indexPath.row]
         
         newCell.largeImageView.image = photoRecord.getImage()
+        newCell.spinner.stopAnimating()
         
         // return cell
         return  newCell
